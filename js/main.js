@@ -161,21 +161,34 @@ if (contactForm) {
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
     submitBtn.disabled = true;
     
-    // Get form data
+    // Get form data as JSON
     const formData = new FormData(contactForm);
     
-    // Add Web3Forms access key
-    formData.append('access_key', WEB3FORMS_KEY);
-    formData.append('subject', 'رسالة جديدة من موقع البورتفوليو - ' + formData.get('subject'));
-    formData.append('from_name', 'Mohamed Tayel Portfolio');
+    // Build JSON object for Web3Forms
+    const jsonData = {
+      access_key: WEB3FORMS_KEY,
+      name: formData.get('name'),
+      email: formData.get('email'),
+      phone: formData.get('phone') || 'غير محدد',
+      subject: 'رسالة جديدة: ' + (formData.get('subject') || 'استفسار'),
+      message: formData.get('message'),
+      company: formData.get('company') || 'غير محدد',
+      budget: formData.get('budget') || 'غير محدد',
+      from_name: 'Mohamed Tayel Portfolio'
+    };
     
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        body: formData
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(jsonData)
       });
       
       const result = await response.json();
+      console.log('Web3Forms response:', result);
       
       if (result.success) {
         // Show success
