@@ -147,9 +147,8 @@ filterBtns.forEach(btn => {
 const contactForm = document.getElementById('contactForm');
 const formSuccess = document.getElementById('formSuccess');
 
-// API Base URL - Check if backend is available
-const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-const API_URL = isLocalhost ? 'http://localhost:3000/api' : null;
+// Web3Forms Access Key
+const WEB3FORMS_KEY = '65d4f3c3-c6db-47d5-b5a8-baefe0c7d0ed';
 
 if (contactForm) {
   contactForm.addEventListener('submit', async (e) => {
@@ -164,58 +163,31 @@ if (contactForm) {
     
     // Get form data
     const formData = new FormData(contactForm);
-    const data = Object.fromEntries(formData);
+    
+    // Add Web3Forms access key
+    formData.append('access_key', WEB3FORMS_KEY);
+    formData.append('subject', 'رسالة جديدة من موقع البورتفوليو - ' + formData.get('subject'));
+    formData.append('from_name', 'Mohamed Tayel Portfolio');
     
     try {
-      // If running locally with backend
-      if (API_URL) {
-        const response = await fetch(`${API_URL}/contact`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        });
-        
-        const result = await response.json();
-        
-        if (response.ok) {
-          contactForm.style.display = 'none';
-          formSuccess.style.display = 'block';
-        } else {
-          alert(result.error || 'حدث خطأ أثناء الإرسال');
-        }
-      } else {
-        // Demo mode - save to localStorage (for GitHub Pages)
-        const requests = JSON.parse(localStorage.getItem('contactRequests') || '[]');
-        requests.push({
-          ...data,
-          id: Date.now(),
-          status: 'NEW',
-          createdAt: new Date().toISOString()
-        });
-        localStorage.setItem('contactRequests', JSON.stringify(requests));
-        
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
         // Show success
         contactForm.style.display = 'none';
         formSuccess.style.display = 'block';
+        contactForm.reset();
+      } else {
+        alert('حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.');
       }
     } catch (error) {
       console.error('Contact form error:', error);
-      
-      // Fallback to localStorage if API fails
-      const requests = JSON.parse(localStorage.getItem('contactRequests') || '[]');
-      requests.push({
-        ...data,
-        id: Date.now(),
-        status: 'NEW',
-        createdAt: new Date().toISOString()
-      });
-      localStorage.setItem('contactRequests', JSON.stringify(requests));
-      
-      // Show success anyway
-      contactForm.style.display = 'none';
-      formSuccess.style.display = 'block';
+      alert('حدث خطأ في الاتصال. يرجى المحاولة مرة أخرى.');
     }
     
     // Reset button
