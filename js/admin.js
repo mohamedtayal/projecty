@@ -1,12 +1,12 @@
 // ============================================
 // Admin Dashboard JavaScript
-// Connected to Backend API
+// Works with Backend API or localStorage (Demo Mode)
 // ============================================
 
-// API Configuration
-const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-  ? 'http://localhost:3000/api'
-  : '/api';
+// Check if running locally with backend
+const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+const API_URL = isLocalhost ? 'http://localhost:3000/api' : null;
+const DEMO_MODE = !isLocalhost; // GitHub Pages = Demo Mode
 
 // Auth Token
 let authToken = localStorage.getItem('authToken');
@@ -84,6 +84,21 @@ loginForm.addEventListener('submit', async (e) => {
   
   submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الدخول...';
   submitBtn.disabled = true;
+  
+  // Demo Mode - Simple login for GitHub Pages
+  if (DEMO_MODE) {
+    if (email === 'admin' && password === 'admin') {
+      authToken = 'demo-token';
+      localStorage.setItem('authToken', authToken);
+      localStorage.setItem('adminUser', JSON.stringify({ name: 'المدير', email: 'admin@demo.com' }));
+      showDashboard();
+    } else {
+      alert('في الوضع التجريبي: اسم المستخدم: admin | كلمة المرور: admin');
+    }
+    submitBtn.innerHTML = originalText;
+    submitBtn.disabled = false;
+    return;
+  }
   
   console.log('Attempting login with:', email);
   console.log('API URL:', API_URL);
@@ -178,7 +193,20 @@ function showPage(pageId) {
 // ============================================
 async function loadStats() {
   try {
-    const stats = await apiCall('/stats');
+    let stats;
+    
+    if (DEMO_MODE) {
+      // Demo Mode - Calculate from localStorage
+      const requests = JSON.parse(localStorage.getItem('contactRequests') || '[]');
+      stats = {
+        total: requests.length,
+        new: requests.filter(r => r.status === 'NEW').length,
+        inReview: requests.filter(r => r.status === 'IN_REVIEW').length,
+        completed: requests.filter(r => r.status === 'COMPLETED').length
+      };
+    } else {
+      stats = await apiCall('/stats');
+    }
     
     document.getElementById('totalRequests').textContent = stats.total || 0;
     document.getElementById('newRequests').textContent = stats.new || 0;
@@ -198,8 +226,15 @@ async function loadStats() {
 // ============================================
 async function loadRequests() {
   try {
-    const data = await apiCall('/contact');
-    const requests = data.data || data;
+    let requests;
+    
+    if (DEMO_MODE) {
+      // Demo Mode - Load from localStorage
+      requests = JSON.parse(localStorage.getItem('contactRequests') || '[]');
+    } else {
+      const data = await apiCall('/contact');
+      requests = data.data || data;
+    }
     
     renderRecentRequests(requests.slice(0, 5));
     renderAllRequests(requests);
@@ -283,7 +318,16 @@ async function viewRequest(id) {
   currentRequestId = id;
   
   try {
-    const request = await apiCall(`/contact/${id}`);
+    let request;
+    
+    if (DEMO_MODE) {
+      // Demo Mode - Find from localStorage
+      const requests = JSON.parse(localStorage.getItem('contactRequests') || '[]');
+      request = requests.find(r => r.id == id);
+      if (!request) throw new Error('الطلب غير موجود');
+    } else {
+      request = await apiCall(`/contact/${id}`);
+    }
     
     const statuses = [
       { value: 'NEW', label: 'جديد' },
@@ -367,10 +411,20 @@ async function viewRequest(id) {
 // Update Request Status
 async function updateStatus(id, status) {
   try {
-    await apiCall(`/contact/${id}`, {
-      method: 'PATCH',
-      body: JSON.stringify({ status })
-    });
+    if (DEMO_MODE) {
+      // Demo Mode - Update in localStorage
+      const requests = JSON.parse(localStorage.getItem('contactRequests') || '[]');
+      const index = requests.findIndex(r => r.id == id);
+      if (index !== -1) {
+        requests[index].status = status;
+        localStorage.setItem('contactRequests', JSON.stringify(requests));
+      }
+    } else {
+      await apiCall(`/contact/${id}`, {
+        method: 'PATCH',
+        body: JSON.stringify({ status })
+      });
+    }
     
     loadStats();
     loadRequests();
@@ -385,7 +439,14 @@ async function deleteRequest(id) {
   if (!confirm('هل أنت متأكد من حذف هذا الطلب؟')) return;
   
   try {
-    await apiCall(`/contact/${id}`, { method: 'DELETE' });
+    if (DEMO_MODE) {
+      // Demo Mode - Delete from localStorage
+      let requests = JSON.parse(localStorage.getItem('contactRequests') || '[]');
+      requests = requests.filter(r => r.id != id);
+      localStorage.setItem('contactRequests', JSON.stringify(requests));
+    } else {
+      await apiCall(`/contact/${id}`, { method: 'DELETE' });
+    }
     
     loadStats();
     loadRequests();
@@ -402,8 +463,14 @@ async function deleteRequest(id) {
 // ============================================
 async function exportRequests(format) {
   try {
-    const data = await apiCall('/contact');
-    const requests = data.data || data;
+    let requests;
+    
+    if (DEMO_MODE) {
+      requests = JSON.parse(localStorage.getItem('contactRequests') || '[]');
+    } else {
+      const data = await apiCall('/contact');
+      requests = data.data || data;
+    }
     
     if (format === 'excel') {
       let csv = 'الاسم,البريد,الهاتف,الموضوع,الميزانية,الرسالة,الحالة,التاريخ\n';
