@@ -1,0 +1,110 @@
+// ============================================
+// Prisma Schema - Mohamed Tayel Portfolio
+// Database: SQLite (development) / PostgreSQL (production)
+// ============================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================
+// نموذج طلبات التواصل - Contact Requests
+// ============================================
+model ContactRequest {
+  id        String   @id @default(uuid())
+  
+  // بيانات العميل
+  name      String
+  email     String
+  phone     String?
+  company   String?
+  
+  // تفاصيل الطلب
+  subject   String
+  budget    String?
+  message   String
+  
+  // حالة الطلب
+  status    RequestStatus @default(NEW)
+  
+  // التعيين والملاحظات
+  assignedTo  String?
+  notes       String?
+  
+  // معلومات تقنية
+  ipAddress   String?
+  userAgent   String?
+  
+  // التواريخ
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("contact_requests")
+}
+
+// ============================================
+// نموذج المستخدمين الإداريين - Admin Users
+// ============================================
+model AdminUser {
+  id           String    @id @default(uuid())
+  
+  name         String
+  email        String    @unique
+  passwordHash String    @map("password_hash")
+  
+  role         AdminRole @default(ADMIN)
+  isActive     Boolean   @default(true) @map("is_active")
+  
+  lastLoginAt  DateTime? @map("last_login_at")
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
+
+  // العلاقات
+  auditLogs    AuditLog[]
+
+  @@map("admin_users")
+}
+
+// ============================================
+// نموذج سجل التدقيق - Audit Log
+// ============================================
+model AuditLog {
+  id          String   @id @default(uuid())
+  
+  entityType  String   @map("entity_type")
+  entityId    String   @map("entity_id")
+  action      String
+  
+  oldData     String?  @map("old_data")
+  newData     String?  @map("new_data")
+  
+  performedBy String   @map("performed_by")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  // العلاقات
+  admin       AdminUser @relation(fields: [performedBy], references: [id])
+
+  @@map("audit_logs")
+}
+
+// ============================================
+// Enums - التعدادات
+// ============================================
+
+enum RequestStatus {
+  NEW           @map("جديد")
+  IN_REVIEW     @map("قيد المراجعة")
+  CONTACTED     @map("تم التواصل")
+  CLOSED        @map("مغلق")
+  REJECTED      @map("مرفوض")
+}
+
+enum AdminRole {
+  ADMIN
+  SUPPORT
+}

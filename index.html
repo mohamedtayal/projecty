@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>محمد طايل | AI Developer & Full Stack Developer</title>
+  <meta name="description" content="محمد طايل - طالب ذكاء اصطناعي ومطور Full Stack. متخصص في تطوير حلول AI، تطبيقات الويب، وتحليل البيانات. جامعة الدلتا - مصر">
+  <meta name="keywords" content="محمد طايل, AI Developer, Full Stack Developer, ذكاء اصطناعي, تطوير ويب, Python, React, Machine Learning, مصر">
+  <meta name="author" content="محمد طايل">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mohamedtayel.dev">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mohamedtayel.dev">
+  <meta property="og:title" content="محمد طايل | AI Developer & Full Stack Developer">
+  <meta property="og:description" content="طالب ذكاء اصطناعي ومطور Full Stack. متخصص في تطوير حلول AI وتطبيقات الويب">
+  <meta property="og:image" content="https://mohamedtayel.dev/images/og-image.jpg">
+  <meta property="og:locale" content="ar_EG">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="محمد طايل | AI Developer">
+  <meta name="twitter:description" content="طالب ذكاء اصطناعي ومطور Full Stack متخصص في AI وتطوير الويب">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+  
+  <!-- Preconnect for Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  
+  <!-- Fonts & Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  
+  <!-- Loading Screen Style -->
+  <style>
+    .page-loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 99999;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    .page-loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .loader-content {
+      text-align: center;
+    }
+    .loader-spinner {
+      width: 60px;
+      height: 60px;
+      border: 4px solid rgba(99, 102, 241, 0.2);
+      border-top-color: #6366f1;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 20px;
+    }
+    .loader-text {
+      color: #fff;
+      font-family: 'Cairo', sans-serif;
+      font-size: 1.2rem;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Page Loader -->
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-content">
+      <div class="loader-spinner"></div>
+      <div class="loader-text">جاري التحميل...</div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+    <div class="container">
+      <a class="navbar-brand" href="#">محمد طايل</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link active" href="#home">الرئيسية</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">من أنا</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">المهارات</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">الخدمات</a></li>
+          <li class="nav-item"><a class="nav-link" href="#portfolio">الأعمال</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">تواصل معي</a></li>
+        </ul>
+        <a href="#contact" class="btn btn-primary d-none d-lg-block">ابدأ مشروعك</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="hero-particles" id="particles"></div>
+    <div class="container">
+      <div class="row align-items-center min-vh-100">
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="hero-badge">
+            <i class="fas fa-brain"></i>
+            <span>AI & Full Stack Developer</span>
+          </div>
+          <h1 class="hero-title">
+            أهلاً، أنا
+            <span class="gradient-text">محمد طايل</span>
+          </h1>
+          <p class="hero-subtitle">
+            طالب في كلية الذكاء الاصطناعي بجامعة الدلتا، شغوف بتطوير حلول ذكية تجمع بين الـ AI والبرمجة التطبيقية
+          </p>
+          <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary btn-lg">
+              <i class="fas fa-paper-plane"></i>
+              تواصل معي
+            </a>
+            <a href="#portfolio" class="btn btn-outline-light btn-lg">
+              <i class="fas fa-folder-open"></i>
+              أعمالي
+            </a>
+          </div>
+          <div class="hero-social">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-kaggle"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-6 text-center" data-aos="fade-right">
+          <div class="hero-image">
+            <div class="hero-avatar">
+              <i class="fas fa-user-astronaut"></i>
+            </div>
+            <div class="floating-icons">
+              <span class="float-icon"><i class="fab fa-python"></i></span>
+              <span class="float-icon"><i class="fab fa-react"></i></span>
+              <span class="float-icon"><i class="fas fa-robot"></i></span>
+              <span class="float-icon"><i class="fab fa-node-js"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <a href="#about"><i class="fas fa-chevron-down"></i></a>
+    </div>
+  </section>
+
+
+  <!-- About Section -->
+  <section id="about" class="section bg-dark-light">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-5" data-aos="fade-left">
+          <div class="about-image">
+            <div class="image-frame">
+              <div class="image-placeholder">👨‍💻</div>
+            </div>
+            <div class="experience-badge">
+              <span class="number">AI</span>
+              <span class="text">Student</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7" data-aos="fade-right">
+          <div class="section-badge">من أنا</div>
+          <h2 class="section-title">طالب ذكاء اصطناعي ومطور Full Stack</h2>
+          <p class="lead">
+            أنا محمد طايل، طالب في كلية الذكاء الاصطناعي بجامعة الدلتا. أجمع بين الدراسة الأكاديمية في AI/ML والتطبيق العملي في تطوير البرمجيات.
+          </p>
+          <p>
+            أؤمن بأن المستقبل يكمن في دمج الذكاء الاصطناعي مع التطبيقات العملية. لذلك أعمل على تطوير مهاراتي في كلا المجالين لبناء حلول مبتكرة.
+          </p>
+          <div class="about-info">
+            <div class="info-item">
+              <i class="fas fa-graduation-cap"></i>
+              <div>
+                <strong>الجامعة</strong>
+                <span>جامعة الدلتا</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-brain"></i>
+              <div>
+                <strong>الكلية</strong>
+                <span>كلية الذكاء الاصطناعي</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-code"></i>
+              <div>
+                <strong>التخصص</strong>
+                <span>AI & Full Stack</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <strong>الموقع</strong>
+                <span>مصر</span>
+              </div>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn-primary">
+            <i class="fas fa-download"></i>
+            تحميل السيرة الذاتية
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="0">
+          <div class="stat-card">
+            <i class="fas fa-project-diagram"></i>
+            <h3 class="counter" data-target="15">0</h3>
+            <p>مشروع منجز</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="stat-card">
+            <i class="fas fa-code"></i>
+            <h3 class="counter" data-target="10">0</h3>
+            <p>لغة برمجة</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
+          <div class="stat-card">
+            <i class="fas fa-certificate"></i>
+            <h3 class="counter" data-target="8">0</h3>
+            <p>شهادة</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
+          <div class="stat-card">
+            <i class="fas fa-users"></i>
+            <h3 class="counter" data-target="20">0</h3>
+            <p>عميل سعيد</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Skills Section -->
+  <section id="skills" class="section">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="section-badge">المهارات</div>
+        <h2 class="section-title">التقنيات التي أتقنها</h2>
+        <p class="section-subtitle">مجموعة من المهارات التقنية في مجالات الذكاء الاصطناعي وتطوير الويب</p>
+      </div>
+      
+      <div class="row g-4">
+        <!-- AI & ML -->
+        <div class="col-lg-6" data-aos="fade-up">
+          <div class="skill-category">
+            <div class="category-header">
+              <i class="fas fa-brain"></i>
+              <h3>الذكاء الاصطناعي وتعلم الآلة</h3>
+            </div>
+            <div class="skills-list">
+              <div class="skill-item">
+                <div class="skill-info"><span>Python</span><span>90%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>TensorFlow / Keras</span><span>80%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>PyTorch</span><span>75%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>Scikit-learn</span><span>85%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>Data Analysis (Pandas/NumPy)</span><span>88%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frontend -->
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="skill-category">
+            <div class="category-header">
+              <i class="fas fa-laptop-code"></i>
+              <h3>تطوير الواجهات (Frontend)</h3>
+            </div>
+            <div class="skills-list">
+              <div class="skill-item">
+                <div class="skill-info"><span>HTML / CSS</span><span>95%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>JavaScript</span><span>85%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>React.js</span><span>80%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>Bootstrap / Tailwind</span><span>90%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>TypeScript</span><span>70%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Backend -->
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="skill-category">
+            <div class="category-header">
+              <i class="fas fa-server"></i>
+              <h3>تطوير الخوادم (Backend)</h3>
+            </div>
+            <div class="skills-list">
+              <div class="skill-item">
+                <div class="skill-info"><span>Node.js / Express</span><span>82%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 82%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>Django / Flask</span><span>78%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 78%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>REST APIs</span><span>85%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>PostgreSQL / MongoDB</span><span>80%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="skill-category">
+            <div class="category-header">
+              <i class="fas fa-tools"></i>
+              <h3>الأدوات والتقنيات</h3>
+            </div>
+            <div class="skills-list">
+              <div class="skill-item">
+                <div class="skill-info"><span>Git / GitHub</span><span>90%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>Docker</span><span>70%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>Linux</span><span>75%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>Jupyter / Colab</span><span>92%</span></div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 92%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tech Icons -->
+      <div class="tech-icons" data-aos="fade-up">
+        <div class="tech-icon"><i class="fab fa-python"></i></div>
+        <div class="tech-icon"><i class="fab fa-js"></i></div>
+        <div class="tech-icon"><i class="fab fa-react"></i></div>
+        <div class="tech-icon"><i class="fab fa-node-js"></i></div>
+        <div class="tech-icon"><i class="fab fa-git-alt"></i></div>
+        <div class="tech-icon"><i class="fab fa-docker"></i></div>
+        <div class="tech-icon"><i class="fab fa-linux"></i></div>
+        <div class="tech-icon"><i class="fas fa-database"></i></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Services Section -->
+  <section id="services" class="section bg-dark-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="section-badge">الخدمات</div>
+        <h2 class="section-title">ما يمكنني تقديمه</h2>
+        <p class="section-subtitle">خدمات متنوعة في مجالات الذكاء الاصطناعي وتطوير البرمجيات</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-robot"></i></div>
+            <h3>حلول الذكاء الاصطناعي</h3>
+            <p>تطوير نماذج ML/DL لحل المشكلات المعقدة وأتمتة العمليات</p>
+            <ul class="service-features">
+              <li><i class="fas fa-check"></i> تصنيف الصور والنصوص</li>
+              <li><i class="fas fa-check"></i> التنبؤ وتحليل البيانات</li>
+              <li><i class="fas fa-check"></i> معالجة اللغة الطبيعية</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-code"></i></div>
+            <h3>تطوير الويب Full Stack</h3>
+            <p>بناء تطبيقات ويب متكاملة من الواجهة للخادم</p>
+            <ul class="service-features">
+              <li><i class="fas fa-check"></i> مواقع تفاعلية وسريعة</li>
+              <li><i class="fas fa-check"></i> لوحات تحكم متقدمة</li>
+              <li><i class="fas fa-check"></i> APIs احترافية</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+            <h3>تحليل البيانات</h3>
+            <p>استخراج رؤى قيمة من البيانات وتصويرها بشكل احترافي</p>
+            <ul class="service-features">
+              <li><i class="fas fa-check"></i> تنظيف ومعالجة البيانات</li>
+              <li><i class="fas fa-check"></i> تصوير البيانات</li>
+              <li><i class="fas fa-check"></i> تقارير تحليلية</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+            <h3>تطبيقات الموبايل</h3>
+            <p>تطوير تطبيقات موبايل بتقنيات حديثة</p>
+            <ul class="service-features">
+              <li><i class="fas fa-check"></i> React Native</li>
+              <li><i class="fas fa-check"></i> تصميم UI/UX</li>
+              <li><i class="fas fa-check"></i> تكامل مع APIs</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-database"></i></div>
+            <h3>قواعد البيانات</h3>
+            <p>تصميم وإدارة قواعد بيانات فعالة وآمنة</p>
+            <ul class="service-features">
+              <li><i class="fas fa-check"></i> تصميم Schema</li>
+              <li><i class="fas fa-check"></i> تحسين الأداء</li>
+              <li><i class="fas fa-check"></i> النسخ الاحتياطي</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
+            <h3>التدريب والتعليم</h3>
+            <p>مساعدة في تعلم البرمجة والذكاء الاصطناعي</p>
+            <ul class="service-features">
+              <li><i class="fas fa-check"></i> شرح المفاهيم</li>
+              <li><i class="fas fa-check"></i> حل المشاريع</li>
+              <li><i class="fas fa-check"></i> مراجعة الكود</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="section">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="section-badge">الأعمال</div>
+        <h2 class="section-title">مشاريعي</h2>
+        <p class="section-subtitle">مجموعة من المشاريع التي عملت عليها</p>
+      </div>
+      
+      <!-- Filter Buttons -->
+      <div class="portfolio-filter" data-aos="fade-up">
+        <button class="filter-btn active" data-filter="all">الكل</button>
+        <button class="filter-btn" data-filter="ai">ذكاء اصطناعي</button>
+        <button class="filter-btn" data-filter="web">تطوير ويب</button>
+        <button class="filter-btn" data-filter="data">تحليل بيانات</button>
+      </div>
+
+      <div class="row g-4 portfolio-grid">
+        <div class="col-md-6 col-lg-4 portfolio-item" data-category="ai" data-aos="fade-up">
+          <div class="portfolio-card">
+            <div class="portfolio-image">
+              <span class="emoji">🤖</span>
+              <div class="portfolio-overlay">
+                <a href="#" class="btn btn-light btn-sm"><i class="fas fa-eye"></i></a>
+                <a href="#" class="btn btn-light btn-sm"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-category">ذكاء اصطناعي</span>
+              <h3>نظام تصنيف الصور</h3>
+              <p>نموذج CNN لتصنيف الصور باستخدام TensorFlow</p>
+              <div class="portfolio-tags">
+                <span>Python</span><span>TensorFlow</span><span>CNN</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 portfolio-item" data-category="web" data-aos="fade-up" data-aos-delay="100">
+          <div class="portfolio-card">
+            <div class="portfolio-image">
+              <span class="emoji">🛒</span>
+              <div class="portfolio-overlay">
+                <a href="#" class="btn btn-light btn-sm"><i class="fas fa-eye"></i></a>
+                <a href="#" class="btn btn-light btn-sm"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-category">تطوير ويب</span>
+              <h3>متجر إلكتروني</h3>
+              <p>متجر متكامل مع نظام دفع وإدارة المنتجات</p>
+              <div class="portfolio-tags">
+                <span>React</span><span>Node.js</span><span>MongoDB</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 portfolio-item" data-category="data" data-aos="fade-up" data-aos-delay="200">
+          <div class="portfolio-card">
+            <div class="portfolio-image">
+              <span class="emoji">📊</span>
+              <div class="portfolio-overlay">
+                <a href="#" class="btn btn-light btn-sm"><i class="fas fa-eye"></i></a>
+                <a href="#" class="btn btn-light btn-sm"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-category">تحليل بيانات</span>
+              <h3>تحليل بيانات المبيعات</h3>
+              <p>تحليل شامل لبيانات المبيعات مع تصورات تفاعلية</p>
+              <div class="portfolio-tags">
+                <span>Python</span><span>Pandas</span><span>Plotly</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 portfolio-item" data-category="ai" data-aos="fade-up" data-aos-delay="300">
+          <div class="portfolio-card">
+            <div class="portfolio-image">
+              <span class="emoji">💬</span>
+              <div class="portfolio-overlay">
+                <a href="#" class="btn btn-light btn-sm"><i class="fas fa-eye"></i></a>
+                <a href="#" class="btn btn-light btn-sm"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-category">ذكاء اصطناعي</span>
+              <h3>Chatbot ذكي</h3>
+              <p>بوت محادثة باستخدام NLP ومعالجة اللغة العربية</p>
+              <div class="portfolio-tags">
+                <span>Python</span><span>NLP</span><span>Flask</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 portfolio-item" data-category="web" data-aos="fade-up" data-aos-delay="400">
+          <div class="portfolio-card">
+            <div class="portfolio-image">
+              <span class="emoji">📋</span>
+              <div class="portfolio-overlay">
+                <a href="#" class="btn btn-light btn-sm"><i class="fas fa-eye"></i></a>
+                <a href="#" class="btn btn-light btn-sm"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-category">تطوير ويب</span>
+              <h3>نظام إدارة المهام</h3>
+              <p>تطبيق لإدارة المهام والمشاريع للفرق</p>
+              <div class="portfolio-tags">
+                <span>React</span><span>Express</span><span>PostgreSQL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 portfolio-item" data-category="ai" data-aos="fade-up" data-aos-delay="500">
+          <div class="portfolio-card">
+            <div class="portfolio-image">
+              <span class="emoji">🎯</span>
+              <div class="portfolio-overlay">
+                <a href="#" class="btn btn-light btn-sm"><i class="fas fa-eye"></i></a>
+                <a href="#" class="btn btn-light btn-sm"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-category">ذكاء اصطناعي</span>
+              <h3>نظام توصيات</h3>
+              <p>نظام توصيات للمنتجات باستخدام Collaborative Filtering</p>
+              <div class="portfolio-tags">
+                <span>Python</span><span>Scikit-learn</span><span>Flask</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Contact Section -->
+  <section id="contact" class="section bg-dark-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="section-badge">تواصل معي</div>
+        <h2 class="section-title">لنعمل معاً</h2>
+        <p class="section-subtitle">أخبرني عن مشروعك أو استفسارك وسأرد عليك في أقرب وقت</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-4" data-aos="fade-left">
+          <div class="contact-info">
+            <div class="contact-card">
+              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+              <h3>البريد الإلكتروني</h3>
+              <p>mohamed@example.com</p>
+            </div>
+            <div class="contact-card">
+              <div class="contact-icon"><i class="fas fa-phone"></i></div>
+              <h3>الهاتف</h3>
+              <p>+20 100 000 0000</p>
+            </div>
+            <div class="contact-card">
+              <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <h3>الموقع</h3>
+              <p>مصر - الدلتا</p>
+            </div>
+            <div class="social-links-contact">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-kaggle"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8" data-aos="fade-right">
+          <div class="contact-form-wrapper">
+            <form id="contactForm" class="contact-form">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label><i class="fas fa-user"></i> الاسم الكامل *</label>
+                    <input type="text" name="name" class="form-control" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> البريد الإلكتروني *</label>
+                    <input type="email" name="email" class="form-control" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label><i class="fas fa-phone"></i> رقم الهاتف</label>
+                    <input type="tel" name="phone" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label><i class="fas fa-tag"></i> الموضوع *</label>
+                    <select name="subject" class="form-select" required>
+                      <option value="">اختر الموضوع</option>
+                      <option value="مشروع AI">مشروع ذكاء اصطناعي</option>
+                      <option value="تطوير ويب">تطوير ويب</option>
+                      <option value="تحليل بيانات">تحليل بيانات</option>
+                      <option value="استشارة">استشارة تقنية</option>
+                      <option value="تعاون">تعاون / شراكة</option>
+                      <option value="أخرى">أخرى</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label><i class="fas fa-dollar-sign"></i> الميزانية</label>
+                    <select name="budget" class="form-select">
+                      <option value="">اختر النطاق</option>
+                      <option value="غير محدد">غير محدد</option>
+                      <option value="أقل من 500$">أقل من 500$</option>
+                      <option value="500$ - 1500$">500$ - 1500$</option>
+                      <option value="1500$ - 5000$">1500$ - 5000$</option>
+                      <option value="أكثر من 5000$">أكثر من 5000$</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label><i class="fas fa-building"></i> الشركة/الجهة</label>
+                    <input type="text" name="company" class="form-control">
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <label><i class="fas fa-comment"></i> تفاصيل الرسالة *</label>
+                    <textarea name="message" class="form-control" rows="5" required minlength="30" 
+                      placeholder="اكتب تفاصيل مشروعك أو استفسارك هنا (30 حرف على الأقل)"></textarea>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary btn-lg w-100">
+                    <i class="fas fa-paper-plane"></i>
+                    إرسال الرسالة
+                  </button>
+                </div>
+              </div>
+            </form>
+            <div id="formSuccess" class="form-success" style="display: none;">
+              <i class="fas fa-check-circle"></i>
+              <h3>تم إرسال رسالتك بنجاح!</h3>
+              <p>سأتواصل معك في أقرب وقت ممكن</p>
+              <button onclick="resetForm()" class="btn btn-primary">إرسال رسالة أخرى</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content" data-aos="zoom-in">
+        <h2>هل لديك مشروع في ذهنك؟</h2>
+        <p>دعنا نتحدث عن كيف يمكنني مساعدتك في تحويل فكرتك إلى واقع</p>
+        <a href="#contact" class="btn btn-light btn-lg">
+          <i class="fas fa-rocket"></i>
+          ابدأ الآن
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4">
+          <h3 class="footer-brand">محمد طايل</h3>
+          <p>طالب ذكاء اصطناعي ومطور Full Stack، شغوف بتطوير حلول ذكية ومبتكرة</p>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-kaggle"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4 mb-4">
+          <h4>روابط سريعة</h4>
+          <ul class="footer-links">
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#about">من أنا</a></li>
+            <li><a href="#skills">المهارات</a></li>
+            <li><a href="#portfolio">الأعمال</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-4 mb-4">
+          <h4>الخدمات</h4>
+          <ul class="footer-links">
+            <li><a href="#services">حلول AI</a></li>
+            <li><a href="#services">تطوير ويب</a></li>
+            <li><a href="#services">تحليل بيانات</a></li>
+            <li><a href="#services">تدريب</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-4 mb-4">
+          <h4>النشرة البريدية</h4>
+          <p>اشترك ليصلك كل جديد</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="بريدك الإلكتروني" class="form-control">
+            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="currentYear">2024</span> محمد طايل. جميع الحقوق محفوظة</p>
+        <p class="mt-2"><a href="/admin" class="text-muted small"><i class="fas fa-lock"></i> لوحة التحكم</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <a href="#home" class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "محمد طايل",
+    "alternateName": "Mohamed Tayel",
+    "description": "طالب ذكاء اصطناعي ومطور Full Stack",
+    "url": "https://mohamedtayel.dev",
+    "jobTitle": "AI Developer & Full Stack Developer",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "جامعة الدلتا - كلية الذكاء الاصطناعي"
+    },
+    "knowsAbout": ["Artificial Intelligence", "Machine Learning", "Web Development", "Python", "React", "Node.js"],
+    "sameAs": [
+      "https://github.com/mohamedtayel",
+      "https://linkedin.com/in/mohamedtayel",
+      "https://twitter.com/mohamedtayel"
+    ]
+  }
+  </script>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="js/main.js"></script>
+  
+  <!-- Page Load Script -->
+  <script>
+    // Hide loader when page is ready
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('pageLoader').classList.add('hidden');
+      }, 500);
+    });
+    
+    // Update copyright year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
