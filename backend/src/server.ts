@@ -28,10 +28,12 @@ const app = express();
 // Middleware
 // ============================================
 
-// CORS - Allow frontend origins
+// CORS - Allow all origins for API
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:5500', 'http://127.0.0.1:5500'],
-  credentials: true
+  origin: '*',
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 // Parse JSON
@@ -101,20 +103,23 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 });
 
 // ============================================
-// Start Server
+// Start Server (Local) / Export for Vercel
 // ============================================
 
 const PORT = process.env.PORT || 3000;
 
-async function startServer() {
-  try {
-    // Test database connection
-    await prisma.$connect();
-    console.log('✅ Connected to database');
-    
-    // Start listening
-    app.listen(PORT, () => {
-      console.log(`
+// For Vercel serverless
+export default app;
+
+// For local development
+if (process.env.NODE_ENV !== 'production') {
+  async function startServer() {
+    try {
+      await prisma.$connect();
+      console.log('✅ Connected to database');
+      
+      app.listen(PORT, () => {
+        console.log(`
 ╔════════════════════════════════════════════╗
 ║   🚀 Mohamed Tayel Portfolio Backend       ║
 ╠════════════════════════════════════════════╣
@@ -122,25 +127,19 @@ async function startServer() {
 ║   Admin:   http://localhost:${PORT}/admin     ║
 ║   API:     http://localhost:${PORT}/api       ║
 ╚════════════════════════════════════════════╝
-      `);
-    });
-  } catch (error) {
-    console.error('❌ Failed to start server:', error);
-    process.exit(1);
+        `);
+      });
+    } catch (error) {
+      console.error('❌ Failed to start server:', error);
+      process.exit(1);
+    }
   }
+
+  process.on('SIGINT', async () => {
+    console.log('\n🛑 Shutting down gracefully...');
+    await prisma.$disconnect();
+    process.exit(0);
+  });
+
+  startServer();
 }
-
-// Handle graceful shutdown
-process.on('SIGINT', async () => {
-  console.log('\n🛑 Shutting down gracefully...');
-  await prisma.$disconnect();
-  process.exit(0);
-});
-
-process.on('SIGTERM', async () => {
-  console.log('\n🛑 Shutting down gracefully...');
-  await prisma.$disconnect();
-  process.exit(0);
-});
-
-startServer();
