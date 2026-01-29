@@ -1,3 +1,104 @@
+/* Typing effect for code block */
+.typing-code-css {
+  display: block;
+  overflow: hidden;
+  white-space: pre;
+  border-right: 3px solid var(--primary-light);
+  position: relative;
+  min-width: 0;
+  max-width: 100vw;
+  /* احسب عدد الحروف الفعلي (تقريباً 340) */
+  animation:
+    typing-code 3.5s steps(80, end) 0.5s forwards,
+    cursor-blink 0.8s step-end infinite,
+    cursor-fade 0.5s ease 4.2s forwards;
+  width: 0;
+}
+
+@keyframes typing-code {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.typing-code-css::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.10), rgba(139, 92, 246, 0.10));
+  border-radius: 4px;
+  z-index: -1;
+  opacity: 0;
+  animation: underline-reveal 0.4s ease 3.8s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typing-code-css {
+    animation: none;
+    width: auto;
+    border-right: none;
+  }
+  .typing-code-css::after {
+    animation: none;
+    opacity: 1;
+  }
+}
+/* Typing Static - CSS Animation */
+.typing-static-css {
+  color: var(--white);
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid transparent;
+  position: relative;
+  min-width: 0;
+  max-width: 100vw;
+  /* 7 chars in "Hi, I'm " (مع المسافة) */
+  animation:
+    typing-static 0.7s steps(7, end) 0.1s forwards,
+    cursor-blink 0.8s step-end infinite,
+    cursor-fade 0.5s ease 1.6s forwards;
+  width: 0;
+}
+
+@keyframes typing-static {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.typing-static-css {
+  border-right-color: var(--primary-light);
+  box-shadow: 3px 0 8px rgba(99, 102, 241, 0.2);
+}
+
+.typing-static-css::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(139, 92, 246, 0.12));
+  border-radius: 4px;
+  z-index: -1;
+  opacity: 0;
+  animation: underline-reveal 0.4s ease 1.2s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typing-static-css {
+    animation: none;
+    width: auto;
+    border-right: none;
+    box-shadow: none;
+  }
+  .typing-static-css::after {
+    animation: none;
+    opacity: 1;
+  }
+}
 /* ===================== Responsive Mobile Fixes ===================== */
 @media (max-width: 480px) {
   html {
