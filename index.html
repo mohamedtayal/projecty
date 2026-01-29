@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- SEO Meta Tags -->
-  <title>محمد طايل | AI Developer & Full Stack Developer</title>
-  <meta name="description" content="محمد طايل - طالب ذكاء اصطناعي ومطور Full Stack. متخصص في تطوير حلول AI، تطبيقات الويب، وتحليل البيانات. جامعة الدلتا - مصر">
-  <meta name="keywords" content="محمد طايل, AI Developer, Full Stack Developer, ذكاء اصطناعي, تطوير ويب, Python, React, Machine Learning, مصر">
-  <meta name="author" content="محمد طايل">
+  <title>Mohamed Tayal | AI Developer & Full Stack Developer</title>
+  <meta name="description" content="Mohamed Tayal - AI Student and Full Stack Developer. Specializing in AI solutions, web applications, and data analysis. Delta University - Egypt">
+  <meta name="keywords" content="Mohamed Tayal, AI Developer, Full Stack Developer, Artificial Intelligence, Web Development, Python, React, Machine Learning, Egypt">
+  <meta name="author" content="Mohamed Tayal">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://mohamedtayel.dev">
+  <link rel="canonical" href="https://mohamedTayal.dev">
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://mohamedtayel.dev">
-  <meta property="og:title" content="محمد طايل | AI Developer & Full Stack Developer">
-  <meta property="og:description" content="طالب ذكاء اصطناعي ومطور Full Stack. متخصص في تطوير حلول AI وتطبيقات الويب">
-  <meta property="og:image" content="https://mohamedtayel.dev/images/og-image.jpg">
-  <meta property="og:locale" content="ar_EG">
+  <meta property="og:url" content="https://mohamedTayal.dev">
+  <meta property="og:title" content="Mohamed Tayal | AI Developer & Full Stack Developer">
+  <meta property="og:description" content="AI Student and Full Stack Developer. Specializing in AI solutions and web applications">
+  <meta property="og:image" content="https://mohamedTayal.dev/images/og-image.jpg">
+  <meta property="og:locale" content="en_US">
   
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="محمد طايل | AI Developer">
-  <meta name="twitter:description" content="طالب ذكاء اصطناعي ومطور Full Stack متخصص في AI وتطوير الويب">
+  <meta name="twitter:title" content="Mohamed Tayal | AI Developer">
+  <meta name="twitter:description" content="AI Student and Full Stack Developer specializing in AI and web development">
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
@@ -34,8 +34,8 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   
   <!-- Fonts & Styles -->
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
@@ -48,12 +48,12 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
+      background: linear-gradient(135deg, #0a0a0f 0%, #12121a 100%);
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 99999;
-      transition: opacity 0.5s ease, visibility 0.5s ease;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
     }
     .page-loader.hidden {
       opacity: 0;
@@ -63,21 +63,59 @@
       text-align: center;
     }
     .loader-spinner {
-      width: 60px;
-      height: 60px;
-      border: 4px solid rgba(99, 102, 241, 0.2);
-      border-top-color: #6366f1;
+      width: 70px;
+      height: 70px;
+      position: relative;
+      margin: 0 auto 25px;
+    }
+    .loader-spinner::before,
+    .loader-spinner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
       border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin: 0 auto 20px;
+      border: 4px solid transparent;
+    }
+    .loader-spinner::before {
+      border-top-color: #6366f1;
+      border-right-color: #6366f1;
+      animation: spin 1.2s linear infinite;
+    }
+    .loader-spinner::after {
+      border-bottom-color: #8b5cf6;
+      border-left-color: #8b5cf6;
+      animation: spin 1.2s linear infinite reverse;
+      inset: 8px;
     }
     .loader-text {
       color: #fff;
       font-family: 'Cairo', sans-serif;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+    .loader-progress {
+      width: 200px;
+      height: 4px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      margin: 20px auto 0;
+      overflow: hidden;
+    }
+    .loader-progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #6366f1, #8b5cf6);
+      border-radius: 10px;
+      width: 0%;
+      animation: progress 1.5s ease-out forwards;
     }
     @keyframes spin {
       to { transform: rotate(360deg); }
+    }
+    @keyframes progress {
+      0% { width: 0%; }
+      50% { width: 70%; }
+      100% { width: 100%; }
     }
   </style>
 </head>
@@ -86,81 +124,119 @@
   <div class="page-loader" id="pageLoader">
     <div class="loader-content">
       <div class="loader-spinner"></div>
-      <div class="loader-text">جاري التحميل...</div>
+      <div class="loader-text">Loading...</div>
+      <div class="loader-progress">
+        <div class="loader-progress-bar"></div>
+      </div>
     </div>
   </div>
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
     <div class="container">
-      <a class="navbar-brand" href="#">محمد طايل</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <a class="navbar-brand" href="#">
+        <span>Mohamed Tayal</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
         <i class="fas fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto">
-          <li class="nav-item"><a class="nav-link active" href="#home">الرئيسية</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">من أنا</a></li>
-          <li class="nav-item"><a class="nav-link" href="#skills">المهارات</a></li>
-          <li class="nav-item"><a class="nav-link" href="#services">الخدمات</a></li>
-          <li class="nav-item"><a class="nav-link" href="#portfolio">الأعمال</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">تواصل معي</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#certificates">Certificates</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
-        <a href="#contact" class="btn btn-primary d-none d-lg-block">ابدأ مشروعك</a>
+        <div class="toggle normal d-none d-lg-block me-3">
+          <input id="normal" type="checkbox" aria-label="Toggle dark/light mode">
+          <label class="toggle-item" for="normal"></label>
+        </div>
+        <a href="#contact" class="btn btn-primary d-none d-lg-block">
+          <i class="fas fa-rocket me-2"></i>
+          Start Project
+        </a>
       </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
   <section id="home" class="hero-section">
-    <div class="hero-particles" id="particles"></div>
+    <div class="hero-gradient-bg"></div>
     <div class="container">
       <div class="row align-items-center min-vh-100">
-        <div class="col-lg-6" data-aos="fade-left">
-          <div class="hero-badge">
-            <i class="fas fa-brain"></i>
-            <span>AI & Full Stack Developer</span>
-          </div>
-          <h1 class="hero-title">
-            أهلاً، أنا
-            <span class="gradient-text">محمد طايل</span>
+        <div class="col-lg-6" data-aos="fade-up" data-aos-duration="800">
+          <p class="hero-eyebrow">// AI Student / AI & Full Stack Developer</p>
+          <h1 class="hero-title" aria-label="Hi, I'm Mohamed Tayal">
+            <span class="typing-static">Hi, I'm </span><span class="typing-name-css">Mohamed Tayal</span>
           </h1>
-          <p class="hero-subtitle">
-            طالب في كلية الذكاء الاصطناعي بجامعة الدلتا، شغوف بتطوير حلول ذكية تجمع بين الـ AI والبرمجة التطبيقية
+          <p class="hero-description">
+            I build intelligent solutions that bridge the gap between cutting-edge AI research and production-ready applications. Focused on machine learning, full-stack development, and creating impactful digital experiences.
           </p>
-          <div class="hero-buttons">
-            <a href="#contact" class="btn btn-primary btn-lg">
-              <i class="fas fa-paper-plane"></i>
-              تواصل معي
+          <div class="hero-cta">
+            <a href="#contact" class="btn-hero-primary">
+              <span>Contact Me</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
-            <a href="#portfolio" class="btn btn-outline-light btn-lg">
-              <i class="fas fa-folder-open"></i>
-              أعمالي
+            <a href="#portfolio" class="btn-hero-secondary">
+              <span>My Work</span>
             </a>
           </div>
-          <div class="hero-social">
-            <a href="https://github.com/mohamedtayal" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/mohamedtayal" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://wa.me/201067035421" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <div class="hero-tech-stack">
+            <span class="tech-label">Tech Stack</span>
+            <div class="tech-icons">
+              <div class="tech-icon" title="Artificial Intelligence"><i class="fas fa-brain"></i></div>
+              <div class="tech-icon" title="React"><i class="fab fa-react"></i></div>
+              <div class="tech-icon" title="Database"><i class="fas fa-database"></i></div>
+              <div class="tech-icon" title="Node.js"><i class="fab fa-node-js"></i></div>
+              <div class="tech-icon" title="Python"><i class="fab fa-python"></i></div>
+            </div>
           </div>
         </div>
-        <div class="col-lg-6 text-center" data-aos="fade-right">
-          <div class="hero-image">
-            <div class="hero-avatar">
-              <i class="fas fa-user-astronaut"></i>
+        <div class="col-lg-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+          <div class="hero-visual">
+            <!-- Code Editor Mockup -->
+            <div class="code-editor-glass">
+              <div class="editor-topbar">
+                <div class="editor-dots">
+                  <span class="dot dot-red"></span>
+                  <span class="dot dot-yellow"></span>
+                  <span class="dot dot-green"></span>
+                </div>
+                <span class="editor-filename">developer.py</span>
+              </div>
+              <div class="editor-code">
+                <pre><code><span class="code-keyword">class</span> <span class="code-class">Developer</span>:
+    <span class="code-keyword">def</span> <span class="code-function">__init__</span>(<span class="code-param">self</span>):
+        <span class="code-param">self</span>.name = <span class="code-string">"Mohamed Tayal"</span>
+        <span class="code-param">self</span>.role = <span class="code-string">"Full Stack Developer"</span>
+        <span class="code-param">self</span>.skills = {
+            <span class="code-string">"Frontend"</span>: [<span class="code-string">"HTML"</span>, <span class="code-string">"JavaScript"</span>],
+            <span class="code-string">"Backend"</span>: [<span class="code-string">"Node.js"</span>, <span class="code-string">"Python"</span>],
+            <span class="code-string">"AI/ML"</span>: [<span class="code-string">"Machine Learning"</span>],
+            <span class="code-string">"Data"</span>: [<span class="code-string">"SQL"</span>, <span class="code-string">"Analysis"</span>],
+            <span class="code-string">"Tools"</span>: [<span class="code-string">"Docker"</span>, <span class="code-string">"Java"</span>]
+        }<span class="code-cursor">|</span></code></pre>
+              </div>
             </div>
-            <div class="floating-icons">
-              <span class="float-icon"><i class="fab fa-python"></i></span>
-              <span class="float-icon"><i class="fab fa-react"></i></span>
-              <span class="float-icon"><i class="fas fa-robot"></i></span>
-              <span class="float-icon"><i class="fab fa-node-js"></i></span>
+            <!-- Floating Elements -->
+            <div class="floating-element floating-1">
+              <i class="fab fa-python"></i>
+            </div>
+            <div class="floating-element floating-2">
+              <i class="fab fa-react"></i>
+            </div>
+            <div class="floating-element floating-3">
+              <i class="fas fa-brain"></i>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="scroll-indicator">
-      <a href="#about"><i class="fas fa-chevron-down"></i></a>
+      <a href="#about" aria-label="Scroll to About section"><i class="fas fa-chevron-down"></i></a>
     </div>
   </section>
 
@@ -172,57 +248,131 @@
         <div class="col-lg-5" data-aos="fade-left">
           <div class="about-image">
             <div class="image-frame">
-              <div class="image-placeholder">👨‍💻</div>
+              <div class="image-placeholder logo-3d-container" id="logo3dContainer">
+                <!-- Interactive 3D Programmer Logo -->
+                <div class="logo-3d-scene">
+                  <!-- Ambient glow layer -->
+                  <div class="logo-3d-glow"></div>
+                  
+                  <!-- 3D Figure Container -->
+                  <div class="logo-3d-figure" id="logo3dFigure">
+                    <!-- Head -->
+                    <div class="figure-head">
+                      <div class="head-shape"></div>
+                      <div class="head-highlight"></div>
+                    </div>
+                    
+                    <!-- Body/Torso -->
+                    <div class="figure-body">
+                      <div class="body-shape"></div>
+                      <div class="shoulder-left"></div>
+                      <div class="shoulder-right"></div>
+                    </div>
+                    
+                    <!-- Arms -->
+                    <div class="figure-arms">
+                      <div class="arm-left"></div>
+                      <div class="arm-right"></div>
+                    </div>
+                    
+                    <!-- Laptop -->
+                    <div class="figure-laptop" id="logo3dLaptop">
+                      <div class="laptop-screen">
+                        <div class="screen-content">
+                          <span class="code-symbol">&lt;/&gt;</span>
+                        </div>
+                        <div class="screen-glow"></div>
+                      </div>
+                      <div class="laptop-base">
+                        <div class="laptop-keyboard"></div>
+                      </div>
+                    </div>
+                    
+                    <!-- Desk surface -->
+                    <div class="figure-desk"></div>
+                  </div>
+                  
+                  <!-- Floating particles -->
+                  <div class="logo-3d-particles">
+                    <span class="particle p1"></span>
+                    <span class="particle p2"></span>
+                    <span class="particle p3"></span>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="experience-badge">
               <span class="number">AI</span>
-              <span class="text">Student</span>
+              <span class="text">Developer</span>
             </div>
           </div>
         </div>
         <div class="col-lg-7" data-aos="fade-right">
-          <div class="section-badge">من أنا</div>
-          <h2 class="section-title">طالب ذكاء اصطناعي ومطور Full Stack</h2>
-          <p class="lead">
-            أنا محمد طايل، طالب في كلية الذكاء الاصطناعي بجامعة الدلتا. أجمع بين الدراسة الأكاديمية في AI/ML والتطبيق العملي في تطوير البرمجيات.
-          </p>
-          <p>
-            أؤمن بأن المستقبل يكمن في دمج الذكاء الاصطناعي مع التطبيقات العملية. لذلك أعمل على تطوير مهاراتي في كلا المجالين لبناء حلول مبتكرة.
-          </p>
+          <div class="section-badge">About Me</div>
+          <h2 class="section-title">Building the Future with AI and Code</h2>
+          
+          <div class="about-headline">
+            <p class="lead">
+              <strong>Mohamed Tayal</strong> — AI Student at Delta University, combining academic research in Machine Learning with practical application as a Full Stack Developer.
+            </p>
+          </div>
+          
+          <div class="about-summary">
+            <p>
+              I don't just study theories, I turn them into real solutions. From machine learning models to full-stack web applications — I work on projects that make a tangible difference.
+            </p>
+          </div>
+          
+          <div class="about-focus">
+            <h4><i class="fas fa-crosshairs"></i> Current Focus</h4>
+            <ul class="focus-list">
+              <li><i class="fas fa-robot"></i> Building AI models to solve real-world problems</li>
+              <li><i class="fas fa-globe"></i> Developing full-stack web applications</li>
+              <li><i class="fas fa-chart-line"></i> Transforming data into smart decisions</li>
+            </ul>
+          </div>
+          
           <div class="about-info">
             <div class="info-item">
               <i class="fas fa-graduation-cap"></i>
               <div>
-                <strong>الجامعة</strong>
-                <span>جامعة الدلتا</span>
+                <strong>University</strong>
+                <span>Delta University for Science & Technology</span>
               </div>
             </div>
             <div class="info-item">
               <i class="fas fa-brain"></i>
               <div>
-                <strong>الكلية</strong>
-                <span>كلية الذكاء الاصطناعي</span>
+                <strong>Major</strong>
+                <span>Artificial Intelligence</span>
               </div>
             </div>
             <div class="info-item">
               <i class="fas fa-code"></i>
               <div>
-                <strong>التخصص</strong>
-                <span>AI & Full Stack</span>
+                <strong>Track</strong>
+                <span>AI & Full Stack Development</span>
               </div>
             </div>
             <div class="info-item">
               <i class="fas fa-map-marker-alt"></i>
               <div>
-                <strong>الموقع</strong>
-                <span>مصر</span>
+                <strong>Location</strong>
+                <span>Kafr El-Sheikh, Egypt</span>
               </div>
             </div>
           </div>
-          <a href="#contact" class="btn btn-primary">
-            <i class="fas fa-download"></i>
-            تحميل السيرة الذاتية
-          </a>
+          
+          <div class="about-cta">
+            <a href="#contact" class="btn btn-primary">
+              <i class="fas fa-paper-plane"></i>
+              Contact Me
+            </a>
+            <a href="#portfolio" class="btn btn-outline-light">
+              <i class="fas fa-folder-open"></i>
+              View My Work
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -236,28 +386,28 @@
           <div class="stat-card">
             <i class="fas fa-project-diagram"></i>
             <h3 class="counter" data-target="15">0</h3>
-            <p>مشروع منجز</p>
+            <p>Projects Completed</p>
           </div>
         </div>
         <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
           <div class="stat-card">
             <i class="fas fa-code"></i>
             <h3 class="counter" data-target="10">0</h3>
-            <p>لغة برمجة</p>
+            <p>Programming Languages</p>
           </div>
         </div>
         <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
           <div class="stat-card">
             <i class="fas fa-certificate"></i>
             <h3 class="counter" data-target="8">0</h3>
-            <p>شهادة</p>
+            <p>Certificates</p>
           </div>
         </div>
         <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
           <div class="stat-card">
             <i class="fas fa-users"></i>
             <h3 class="counter" data-target="20">0</h3>
-            <p>عميل سعيد</p>
+            <p>Happy Clients</p>
           </div>
         </div>
       </div>
@@ -269,9 +419,9 @@
   <section id="skills" class="section">
     <div class="container">
       <div class="text-center mb-5">
-        <div class="section-badge">المهارات</div>
-        <h2 class="section-title">التقنيات التي أتقنها</h2>
-        <p class="section-subtitle">مجموعة من المهارات التقنية في مجالات الذكاء الاصطناعي وتطوير الويب</p>
+        <div class="section-badge">Skills</div>
+        <h2 class="section-title">Technologies I Master</h2>
+        <p class="section-subtitle">A comprehensive set of technical skills in AI and web development</p>
       </div>
       
       <div class="row g-4">
@@ -280,7 +430,7 @@
           <div class="skill-category">
             <div class="category-header">
               <i class="fas fa-brain"></i>
-              <h3>الذكاء الاصطناعي وتعلم الآلة</h3>
+              <h3>Artificial Intelligence & Machine Learning</h3>
             </div>
             <div class="skills-list">
               <div class="skill-item">
@@ -312,7 +462,7 @@
           <div class="skill-category">
             <div class="category-header">
               <i class="fas fa-laptop-code"></i>
-              <h3>تطوير الواجهات (Frontend)</h3>
+              <h3>Frontend Development</h3>
             </div>
             <div class="skills-list">
               <div class="skill-item">
@@ -344,7 +494,7 @@
           <div class="skill-category">
             <div class="category-header">
               <i class="fas fa-server"></i>
-              <h3>تطوير الخوادم (Backend)</h3>
+              <h3>Backend Development</h3>
             </div>
             <div class="skills-list">
               <div class="skill-item">
@@ -372,7 +522,7 @@
           <div class="skill-category">
             <div class="category-header">
               <i class="fas fa-tools"></i>
-              <h3>الأدوات والتقنيات</h3>
+              <h3>Tools & Technologies</h3>
             </div>
             <div class="skills-list">
               <div class="skill-item">
@@ -415,80 +565,80 @@
   <section id="services" class="section bg-dark-light">
     <div class="container">
       <div class="text-center mb-5">
-        <div class="section-badge">الخدمات</div>
-        <h2 class="section-title">ما يمكنني تقديمه</h2>
-        <p class="section-subtitle">خدمات متنوعة في مجالات الذكاء الاصطناعي وتطوير البرمجيات</p>
+        <div class="section-badge">Services</div>
+        <h2 class="section-title">What I Can Offer</h2>
+        <p class="section-subtitle">Diverse services in AI and software development</p>
       </div>
       <div class="row g-4">
         <div class="col-md-6 col-lg-4" data-aos="fade-up">
           <div class="service-card">
             <div class="service-icon"><i class="fas fa-robot"></i></div>
-            <h3>حلول الذكاء الاصطناعي</h3>
-            <p>تطوير نماذج ML/DL لحل المشكلات المعقدة وأتمتة العمليات</p>
+            <h3>AI Solutions</h3>
+            <p>Developing ML/DL models to solve complex problems and automate processes</p>
             <ul class="service-features">
-              <li><i class="fas fa-check"></i> تصنيف الصور والنصوص</li>
-              <li><i class="fas fa-check"></i> التنبؤ وتحليل البيانات</li>
-              <li><i class="fas fa-check"></i> معالجة اللغة الطبيعية</li>
+              <li><i class="fas fa-check"></i> Image and text classification</li>
+              <li><i class="fas fa-check"></i> Prediction and data analysis</li>
+              <li><i class="fas fa-check"></i> Natural language processing</li>
             </ul>
           </div>
         </div>
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
           <div class="service-card">
             <div class="service-icon"><i class="fas fa-code"></i></div>
-            <h3>تطوير الويب Full Stack</h3>
-            <p>بناء تطبيقات ويب متكاملة من الواجهة للخادم</p>
+            <h3>Full Stack Web Development</h3>
+            <p>Building complete web applications from frontend to backend</p>
             <ul class="service-features">
-              <li><i class="fas fa-check"></i> مواقع تفاعلية وسريعة</li>
-              <li><i class="fas fa-check"></i> لوحات تحكم متقدمة</li>
-              <li><i class="fas fa-check"></i> APIs احترافية</li>
+              <li><i class="fas fa-check"></i> Interactive and fast websites</li>
+              <li><i class="fas fa-check"></i> Advanced admin dashboards</li>
+              <li><i class="fas fa-check"></i> Professional APIs</li>
             </ul>
           </div>
         </div>
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
           <div class="service-card">
             <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-            <h3>تحليل البيانات</h3>
-            <p>استخراج رؤى قيمة من البيانات وتصويرها بشكل احترافي</p>
+            <h3>Data Analysis</h3>
+            <p>Extracting valuable insights from data and visualizing them professionally</p>
             <ul class="service-features">
-              <li><i class="fas fa-check"></i> تنظيف ومعالجة البيانات</li>
-              <li><i class="fas fa-check"></i> تصوير البيانات</li>
-              <li><i class="fas fa-check"></i> تقارير تحليلية</li>
+              <li><i class="fas fa-check"></i> Data cleaning and processing</li>
+              <li><i class="fas fa-check"></i> Data visualization</li>
+              <li><i class="fas fa-check"></i> Analytical reports</li>
             </ul>
           </div>
         </div>
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
           <div class="service-card">
             <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
-            <h3>تطبيقات الموبايل</h3>
-            <p>تطوير تطبيقات موبايل بتقنيات حديثة</p>
+            <h3>Mobile Applications</h3>
+            <p>Developing mobile apps with modern technologies</p>
             <ul class="service-features">
               <li><i class="fas fa-check"></i> React Native</li>
-              <li><i class="fas fa-check"></i> تصميم UI/UX</li>
-              <li><i class="fas fa-check"></i> تكامل مع APIs</li>
+              <li><i class="fas fa-check"></i> UI/UX Design</li>
+              <li><i class="fas fa-check"></i> API Integration</li>
             </ul>
           </div>
         </div>
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
           <div class="service-card">
             <div class="service-icon"><i class="fas fa-database"></i></div>
-            <h3>قواعد البيانات</h3>
-            <p>تصميم وإدارة قواعد بيانات فعالة وآمنة</p>
+            <h3>Database Management</h3>
+            <p>Designing and managing efficient and secure databases</p>
             <ul class="service-features">
-              <li><i class="fas fa-check"></i> تصميم Schema</li>
-              <li><i class="fas fa-check"></i> تحسين الأداء</li>
-              <li><i class="fas fa-check"></i> النسخ الاحتياطي</li>
+              <li><i class="fas fa-check"></i> Schema Design</li>
+              <li><i class="fas fa-check"></i> Performance Optimization</li>
+              <li><i class="fas fa-check"></i> Backup Solutions</li>
             </ul>
           </div>
         </div>
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
           <div class="service-card">
             <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
-            <h3>التدريب والتعليم</h3>
-            <p>مساعدة في تعلم البرمجة والذكاء الاصطناعي</p>
+            <h3>Training & Education</h3>
+            <p>Helping others learn programming and AI</p>
             <ul class="service-features">
-              <li><i class="fas fa-check"></i> شرح المفاهيم</li>
-              <li><i class="fas fa-check"></i> حل المشاريع</li>
-              <li><i class="fas fa-check"></i> مراجعة الكود</li>
+              <li><i class="fas fa-check"></i> Concept Explanation</li>
+              <li><i class="fas fa-check"></i> Project Assistance</li>
+              <li><i class="fas fa-check"></i> Code Review</li>
             </ul>
           </div>
         </div>
@@ -501,17 +651,17 @@
   <section id="portfolio" class="section">
     <div class="container">
       <div class="text-center mb-5">
-        <div class="section-badge">الأعمال</div>
-        <h2 class="section-title">مشاريعي</h2>
-        <p class="section-subtitle">مجموعة من المشاريع التي عملت عليها</p>
+        <div class="section-badge">Portfolio</div>
+        <h2 class="section-title">My Projects</h2>
+        <p class="section-subtitle">A collection of projects I've worked on</p>
       </div>
       
       <!-- Filter Buttons -->
       <div class="portfolio-filter" data-aos="fade-up">
-        <button class="filter-btn active" data-filter="all">الكل</button>
-        <button class="filter-btn" data-filter="ai">ذكاء اصطناعي</button>
-        <button class="filter-btn" data-filter="web">تطوير ويب</button>
-        <button class="filter-btn" data-filter="data">تحليل بيانات</button>
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="ai">Artificial Intelligence</button>
+        <button class="filter-btn" data-filter="web">Web Development</button>
+        <button class="filter-btn" data-filter="data">Data Analysis</button>
       </div>
 
       <div class="row g-4 portfolio-grid">
@@ -525,9 +675,9 @@
               </div>
             </div>
             <div class="portfolio-content">
-              <span class="portfolio-category">ذكاء اصطناعي</span>
-              <h3>نظام تصنيف الصور</h3>
-              <p>نموذج CNN لتصنيف الصور باستخدام TensorFlow</p>
+              <span class="portfolio-category">Artificial Intelligence</span>
+              <h3>Image Classification System</h3>
+              <p>CNN model for image classification using TensorFlow</p>
               <div class="portfolio-tags">
                 <span>Python</span><span>TensorFlow</span><span>CNN</span>
               </div>
@@ -545,9 +695,9 @@
               </div>
             </div>
             <div class="portfolio-content">
-              <span class="portfolio-category">تطوير ويب</span>
-              <h3>متجر إلكتروني</h3>
-              <p>متجر متكامل مع نظام دفع وإدارة المنتجات</p>
+              <span class="portfolio-category">Web Development</span>
+              <h3>E-Commerce Store</h3>
+              <p>Complete online store with payment system and product management</p>
               <div class="portfolio-tags">
                 <span>React</span><span>Node.js</span><span>MongoDB</span>
               </div>
@@ -565,9 +715,9 @@
               </div>
             </div>
             <div class="portfolio-content">
-              <span class="portfolio-category">تحليل بيانات</span>
-              <h3>تحليل بيانات المبيعات</h3>
-              <p>تحليل شامل لبيانات المبيعات مع تصورات تفاعلية</p>
+              <span class="portfolio-category">Data Analysis</span>
+              <h3>Sales Data Analysis</h3>
+              <p>Comprehensive sales data analysis with interactive visualizations</p>
               <div class="portfolio-tags">
                 <span>Python</span><span>Pandas</span><span>Plotly</span>
               </div>
@@ -585,9 +735,9 @@
               </div>
             </div>
             <div class="portfolio-content">
-              <span class="portfolio-category">ذكاء اصطناعي</span>
-              <h3>Chatbot ذكي</h3>
-              <p>بوت محادثة باستخدام NLP ومعالجة اللغة العربية</p>
+              <span class="portfolio-category">Artificial Intelligence</span>
+              <h3>Smart Chatbot</h3>
+              <p>Conversational bot using NLP and Arabic language processing</p>
               <div class="portfolio-tags">
                 <span>Python</span><span>NLP</span><span>Flask</span>
               </div>
@@ -605,9 +755,9 @@
               </div>
             </div>
             <div class="portfolio-content">
-              <span class="portfolio-category">تطوير ويب</span>
-              <h3>نظام إدارة المهام</h3>
-              <p>تطبيق لإدارة المهام والمشاريع للفرق</p>
+              <span class="portfolio-category">Web Development</span>
+              <h3>Task Management System</h3>
+              <p>Application for team task and project management</p>
               <div class="portfolio-tags">
                 <span>React</span><span>Express</span><span>PostgreSQL</span>
               </div>
@@ -625,12 +775,312 @@
               </div>
             </div>
             <div class="portfolio-content">
-              <span class="portfolio-category">ذكاء اصطناعي</span>
-              <h3>نظام توصيات</h3>
-              <p>نظام توصيات للمنتجات باستخدام Collaborative Filtering</p>
+              <span class="portfolio-category">Artificial Intelligence</span>
+              <h3>Recommendation System</h3>
+              <p>Product recommendation system using Collaborative Filtering</p>
               <div class="portfolio-tags">
                 <span>Python</span><span>Scikit-learn</span><span>Flask</span>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Certificates Section -->
+  <section id="certificates" class="section bg-dark-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="section-badge">Achievements</div>
+        <h2 class="section-title">Certificates</h2>
+        <p class="section-subtitle">Accredited certificates from trusted educational platforms</p>
+      </div>
+      
+      <div class="row g-4">
+        <!-- EYouth Business Certificate -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+          <div class="certificate-card">
+            <div class="certificate-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <div class="certificate-content">
+              <h3>EYouth Business</h3>
+              <p>Business Administration Certificate</p>
+              <span class="certificate-issuer"><i class="fas fa-building"></i> EYouth</span>
+            </div>
+            <div class="certificate-actions">
+              <a href="Certificate _ EYouth Business.pdf" target="_blank" class="btn-cert btn-preview" title="Preview">
+                <i class="fas fa-eye"></i>
+              </a>
+              <a href="Certificate _ EYouth Business.pdf" download class="btn-cert btn-download" title="Download">
+                <i class="fas fa-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- EYouth Business 2 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
+          <div class="certificate-card">
+            <div class="certificate-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <div class="certificate-content">
+              <h3>EYouth Business 2</h3>
+              <p>Business Administration - Level 2</p>
+              <span class="certificate-issuer"><i class="fas fa-building"></i> EYouth</span>
+            </div>
+            <div class="certificate-actions">
+              <a href="Certificate _ EYouth Business 2.pdf" target="_blank" class="btn-cert btn-preview" title="معاينة">
+                <i class="fas fa-eye"></i>
+              </a>
+              <a href="Certificate _ EYouth Business 2.pdf" download class="btn-cert btn-download" title="تحميل">
+                <i class="fas fa-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- EYouth Business 3 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="certificate-card">
+            <div class="certificate-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <div class="certificate-content">
+              <h3>EYouth Business 3</h3>
+              <p>Business Administration - Level 3</p>
+              <span class="certificate-issuer"><i class="fas fa-building"></i> EYouth</span>
+            </div>
+            <div class="certificate-actions">
+              <a href="Certificate _ EYouth Business 3.pdf" target="_blank" class="btn-cert btn-preview" title="معاينة">
+                <i class="fas fa-eye"></i>
+              </a>
+              <a href="Certificate _ EYouth Business 3.pdf" download class="btn-cert btn-download" title="تحميل">
+                <i class="fas fa-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- EYouth Business 4 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
+          <div class="certificate-card">
+            <div class="certificate-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <div class="certificate-content">
+              <h3>EYouth Business 4</h3>
+              <p>Business Administration - Level 4</p>
+              <span class="certificate-issuer"><i class="fas fa-building"></i> EYouth</span>
+            </div>
+            <div class="certificate-actions">
+              <a href="Certificate _ EYouth Business 4.pdf" target="_blank" class="btn-cert btn-preview" title="معاينة">
+                <i class="fas fa-eye"></i>
+              </a>
+              <a href="Certificate _ EYouth Business 4.pdf" download class="btn-cert btn-download" title="تحميل">
+                <i class="fas fa-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- EYouth Business 22 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="certificate-card">
+            <div class="certificate-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <div class="certificate-content">
+              <h3>EYouth Business 22</h3>
+              <p>Advanced Business Administration Certificate</p>
+              <span class="certificate-issuer"><i class="fas fa-building"></i> EYouth</span>
+            </div>
+            <div class="certificate-actions">
+              <a href="Certificate _ EYouth Business 22.pdf" target="_blank" class="btn-cert btn-preview" title="معاينة">
+                <i class="fas fa-eye"></i>
+              </a>
+              <a href="Certificate _ EYouth Business 22.pdf" download class="btn-cert btn-download" title="تحميل">
+                <i class="fas fa-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- EYouth Business 33 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="250">
+          <div class="certificate-card">
+            <div class="certificate-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <div class="certificate-content">
+              <h3>EYouth Business 33</h3>
+              <p>Advanced Business Administration Certificate</p>
+              <span class="certificate-issuer"><i class="fas fa-building"></i> EYouth</span>
+            </div>
+            <div class="certificate-actions">
+              <a href="Certificate _ EYouth Business 33.pdf" target="_blank" class="btn-cert btn-preview" title="معاينة">
+                <i class="fas fa-eye"></i>
+              </a>
+              <a href="Certificate _ EYouth Business 33.pdf" download class="btn-cert btn-download" title="تحميل">
+                <i class="fas fa-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- EYouth Business 44 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="certificate-card">
+            <div class="certificate-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <div class="certificate-content">
+              <h3>EYouth Business 44</h3>
+              <p>Advanced Business Administration Certificate</p>
+              <span class="certificate-issuer"><i class="fas fa-building"></i> EYouth</span>
+            </div>
+            <div class="certificate-actions">
+              <a href="Certificate _ EYouth Business 44.pdf" target="_blank" class="btn-cert btn-preview" title="معاينة">
+                <i class="fas fa-eye"></i>
+              </a>
+              <a href="Certificate _ EYouth Business 44.pdf" download class="btn-cert btn-download" title="تحميل">
+                <i class="fas fa-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- EYouth Business Landscape -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="350">
+          <div class="certificate-card">
+            <div class="certificate-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <div class="certificate-content">
+              <h3>EYouth Business Landscape</h3>
+              <p>Business Certificate</p>
+              <span class="certificate-issuer"><i class="fas fa-building"></i> EYouth</span>
+            </div>
+            <div class="certificate-actions">
+              <a href="Certificate _ EYouth Business landscape.pdf" target="_blank" class="btn-cert btn-preview" title="معاينة">
+                <i class="fas fa-eye"></i>
+              </a>
+              <a href="Certificate _ EYouth Business landscape.pdf" download class="btn-cert btn-download" title="تحميل">
+                <i class="fas fa-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- EYouth Business Landscape 1 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="certificate-card">
+            <div class="certificate-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <div class="certificate-content">
+              <h3>EYouth Business Landscape 1</h3>
+              <p>Business Certificate</p>
+              <span class="certificate-issuer"><i class="fas fa-building"></i> EYouth</span>
+            </div>
+            <div class="certificate-actions">
+              <a href="Certificate _ EYouth Business landscape_1.pdf" target="_blank" class="btn-cert btn-preview" title="معاينة">
+                <i class="fas fa-eye"></i>
+              </a>
+              <a href="Certificate _ EYouth Business landscape_1.pdf" download class="btn-cert btn-download" title="تحميل">
+                <i class="fas fa-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course Certificate Arabic -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="450">
+          <div class="certificate-card">
+            <div class="certificate-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="certificate-content">
+              <h3>Training Course Certificate</h3>
+              <p>Course Completion Certificate - Arabic</p>
+              <span class="certificate-issuer"><i class="fas fa-university"></i> Educational Platform</span>
+            </div>
+            <div class="certificate-actions">
+              <a href="Course_Certificate_Ar.pdf" target="_blank" class="btn-cert btn-preview" title="معاينة">
+                <i class="fas fa-eye"></i>
+              </a>
+              <a href="Course_Certificate_Ar.pdf" download class="btn-cert btn-download" title="تحميل">
+                <i class="fas fa-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course Certificate Arabic (1) -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+          <div class="certificate-card">
+            <div class="certificate-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="certificate-content">
+              <h3>Training Course Certificate 2</h3>
+              <p>Course Completion Certificate - Arabic</p>
+              <span class="certificate-issuer"><i class="fas fa-university"></i> Educational Platform</span>
+            </div>
+            <div class="certificate-actions">
+              <a href="Course_Certificate_Ar (1).pdf" target="_blank" class="btn-cert btn-preview" title="معاينة">
+                <i class="fas fa-eye"></i>
+              </a>
+              <a href="Course_Certificate_Ar (1).pdf" download class="btn-cert btn-download" title="تحميل">
+                <i class="fas fa-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course Certificate English -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="550">
+          <div class="certificate-card">
+            <div class="certificate-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="certificate-content">
+              <h3>Course Certificate</h3>
+              <p>Course Completion Certificate - English</p>
+              <span class="certificate-issuer"><i class="fas fa-university"></i> Educational Platform</span>
+            </div>
+            <div class="certificate-actions">
+              <a href="Course_Certificate_En.pdf" target="_blank" class="btn-cert btn-preview" title="Preview">
+                <i class="fas fa-eye"></i>
+              </a>
+              <a href="Course_Certificate_En.pdf" download class="btn-cert btn-download" title="Download">
+                <i class="fas fa-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course Certificate English (1) -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+          <div class="certificate-card">
+            <div class="certificate-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="certificate-content">
+              <h3>Course Certificate 2</h3>
+              <p>Course Completion Certificate - English</p>
+              <span class="certificate-issuer"><i class="fas fa-university"></i> Educational Platform</span>
+            </div>
+            <div class="certificate-actions">
+              <a href="Course_Certificate_En (1).pdf" target="_blank" class="btn-cert btn-preview" title="Preview">
+                <i class="fas fa-eye"></i>
+              </a>
+              <a href="Course_Certificate_En (1).pdf" download class="btn-cert btn-download" title="Download">
+                <i class="fas fa-download"></i>
+              </a>
             </div>
           </div>
         </div>
@@ -643,29 +1093,29 @@
   <section id="contact" class="section bg-dark-light">
     <div class="container">
       <div class="text-center mb-5">
-        <div class="section-badge">تواصل معي</div>
-        <h2 class="section-title">لنعمل معاً</h2>
-        <p class="section-subtitle">أخبرني عن مشروعك أو استفسارك وسأرد عليك في أقرب وقت</p>
+        <div class="section-badge">Contact</div>
+        <h2 class="section-title">Let's Work Together</h2>
+        <p class="section-subtitle">Tell me about your project or inquiry and I'll get back to you as soon as possible</p>
       </div>
       <div class="row g-4">
         <div class="col-lg-4" data-aos="fade-left">
           <div class="contact-info">
             <div class="contact-card">
               <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-              <h3>البريد الإلكتروني</h3>
+              <h3>Email</h3>
               <p>mota200615@gmail.com</p>
               <p style="font-size: 0.85rem; opacity: 0.8;">ai4241379@deltauniv.edu.eg</p>
             </div>
             <div class="contact-card">
               <div class="contact-icon"><i class="fas fa-phone"></i></div>
-              <h3>الهاتف</h3>
+              <h3>Phone</h3>
               <p>+20 106 703 5421</p>
             </div>
             <div class="contact-card">
               <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-              <h3>الموقع</h3>
-              <p>القرضا، كفر الشيخ</p>
-              <p style="font-size: 0.85rem; opacity: 0.8;">محافظة كفر الشيخ، مصر</p>
+              <h3>Location</h3>
+              <p>El-Qarda, Kafr El-Sheikh</p>
+              <p style="font-size: 0.85rem; opacity: 0.8;">Kafr El-Sheikh Governorate, Egypt</p>
             </div>
             <div class="social-links-contact">
               <a href="https://github.com/mohamedtayal" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
@@ -680,75 +1130,75 @@
               <div class="row g-3">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label><i class="fas fa-user"></i> الاسم الكامل *</label>
+                    <label><i class="fas fa-user"></i> Full Name *</label>
                     <input type="text" name="name" class="form-control" required>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label><i class="fas fa-envelope"></i> البريد الإلكتروني *</label>
+                    <label><i class="fas fa-envelope"></i> Email *</label>
                     <input type="email" name="email" class="form-control" required>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label><i class="fas fa-phone"></i> رقم الهاتف</label>
+                    <label><i class="fas fa-phone"></i> Phone Number</label>
                     <input type="tel" name="phone" class="form-control">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label><i class="fas fa-tag"></i> الموضوع *</label>
+                    <label><i class="fas fa-tag"></i> Subject *</label>
                     <select name="subject" class="form-select" required>
-                      <option value="">اختر الموضوع</option>
-                      <option value="مشروع AI">مشروع ذكاء اصطناعي</option>
-                      <option value="تطوير ويب">تطوير ويب</option>
-                      <option value="تحليل بيانات">تحليل بيانات</option>
-                      <option value="استشارة">استشارة تقنية</option>
-                      <option value="تعاون">تعاون / شراكة</option>
-                      <option value="أخرى">أخرى</option>
+                      <option value="">Select Subject</option>
+                      <option value="AI Project">AI Project</option>
+                      <option value="Web Development">Web Development</option>
+                      <option value="Data Analysis">Data Analysis</option>
+                      <option value="Consultation">Technical Consultation</option>
+                      <option value="Collaboration">Collaboration / Partnership</option>
+                      <option value="Other">Other</option>
                     </select>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label><i class="fas fa-dollar-sign"></i> الميزانية</label>
+                    <label><i class="fas fa-dollar-sign"></i> Budget</label>
                     <select name="budget" class="form-select">
-                      <option value="">اختر النطاق</option>
-                      <option value="غير محدد">غير محدد</option>
-                      <option value="أقل من 500$">أقل من 500$</option>
-                      <option value="500$ - 1500$">500$ - 1500$</option>
-                      <option value="1500$ - 5000$">1500$ - 5000$</option>
-                      <option value="أكثر من 5000$">أكثر من 5000$</option>
+                      <option value="">Select Range</option>
+                      <option value="Not specified">Not specified</option>
+                      <option value="Less than $500">Less than $500</option>
+                      <option value="$500 - $1500">$500 - $1500</option>
+                      <option value="$1500 - $5000">$1500 - $5000</option>
+                      <option value="More than $5000">More than $5000</option>
                     </select>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label><i class="fas fa-building"></i> الشركة/الجهة</label>
+                    <label><i class="fas fa-building"></i> Company/Organization</label>
                     <input type="text" name="company" class="form-control">
                   </div>
                 </div>
                 <div class="col-12">
                   <div class="form-group">
-                    <label><i class="fas fa-comment"></i> تفاصيل الرسالة *</label>
+                    <label><i class="fas fa-comment"></i> Message Details *</label>
                     <textarea name="message" class="form-control" rows="5" required minlength="30" 
-                      placeholder="اكتب تفاصيل مشروعك أو استفسارك هنا (30 حرف على الأقل)"></textarea>
+                      placeholder="Write details about your project or inquiry here (minimum 30 characters)"></textarea>
                   </div>
                 </div>
                 <div class="col-12">
                   <button type="submit" class="btn btn-primary btn-lg w-100">
                     <i class="fas fa-paper-plane"></i>
-                    إرسال الرسالة
+                    Send Message
                   </button>
                 </div>
               </div>
             </form>
             <div id="formSuccess" class="form-success" style="display: none;">
               <i class="fas fa-check-circle"></i>
-              <h3>تم إرسال رسالتك بنجاح!</h3>
-              <p>سأتواصل معك في أقرب وقت ممكن</p>
-              <button onclick="resetForm()" class="btn btn-primary">إرسال رسالة أخرى</button>
+              <h3>Your message has been sent successfully!</h3>
+              <p>I'll get back to you as soon as possible</p>
+              <button onclick="resetForm()" class="btn btn-primary">Send Another Message</button>
             </div>
           </div>
         </div>
@@ -760,11 +1210,11 @@
   <section class="cta-section">
     <div class="container">
       <div class="cta-content" data-aos="zoom-in">
-        <h2>هل لديك مشروع في ذهنك؟</h2>
-        <p>دعنا نتحدث عن كيف يمكنني مساعدتك في تحويل فكرتك إلى واقع</p>
+        <h2>Have a project in mind?</h2>
+        <p>Let's talk about how I can help you turn your idea into reality</p>
         <a href="#contact" class="btn btn-light btn-lg">
           <i class="fas fa-rocket"></i>
-          ابدأ الآن
+          Get Started
         </a>
       </div>
     </div>
@@ -775,8 +1225,8 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-4 mb-4">
-          <h3 class="footer-brand">محمد طايل</h3>
-          <p>طالب ذكاء اصطناعي ومطور Full Stack، شغوف بتطوير حلول ذكية ومبتكرة</p>
+          <h3 class="footer-brand">Mohamed Tayal</h3>
+          <p>AI Student and Full Stack Developer, passionate about creating smart and innovative solutions</p>
           <div class="footer-social">
             <a href="https://github.com/mohamedtayal" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
             <a href="https://www.linkedin.com/in/mohamedtayal" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -784,35 +1234,28 @@
           </div>
         </div>
         <div class="col-lg-2 col-md-4 mb-4">
-          <h4>روابط سريعة</h4>
+          <h4>Quick Links</h4>
           <ul class="footer-links">
-            <li><a href="#home">الرئيسية</a></li>
-            <li><a href="#about">من أنا</a></li>
-            <li><a href="#skills">المهارات</a></li>
-            <li><a href="#portfolio">الأعمال</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
           </ul>
         </div>
         <div class="col-lg-2 col-md-4 mb-4">
-          <h4>الخدمات</h4>
+          <h4>Services</h4>
           <ul class="footer-links">
-            <li><a href="#services">حلول AI</a></li>
-            <li><a href="#services">تطوير ويب</a></li>
-            <li><a href="#services">تحليل بيانات</a></li>
-            <li><a href="#services">تدريب</a></li>
+            <li><a href="#services">AI Solutions</a></li>
+            <li><a href="#services">Web Development</a></li>
+            <li><a href="#services">Data Analysis</a></li>
+            <li><a href="#services">Training</a></li>
           </ul>
-        </div>
-        <div class="col-lg-4 col-md-4 mb-4">
-          <h4>النشرة البريدية</h4>
-          <p>اشترك ليصلك كل جديد</p>
-          <form class="newsletter-form">
-            <input type="email" placeholder="بريدك الإلكتروني" class="form-control">
-            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
-          </form>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© <span id="currentYear">2024</span> محمد طايل. جميع الحقوق محفوظة</p>
-        <p class="mt-2"><a href="/admin" class="text-muted small"><i class="fas fa-lock"></i> لوحة التحكم</a></p>
+        <p>© <span id="currentYear">2024</span> Mohamed Tayal. All Rights Reserved</p>
+        <p class="tagline-footer">Better Call Tayal</p>
+        <p class="mt-2"><a href="/admin" class="text-muted small"><i class="fas fa-lock"></i> Admin Panel</a></p>
       </div>
     </div>
   </footer>
@@ -827,20 +1270,20 @@
   {
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": "محمد طايل",
-    "alternateName": "Mohamed Tayel",
-    "description": "طالب ذكاء اصطناعي ومطور Full Stack",
-    "url": "https://mohamedtayel.dev",
+    "name": "Mohamed Tayal",
+    "alternateName": "Mohamed Tayal",
+    "description": "AI Student and Full Stack Developer",
+    "url": "https://mohamedTayal.dev",
     "jobTitle": "AI Developer & Full Stack Developer",
     "alumniOf": {
       "@type": "CollegeOrUniversity",
-      "name": "جامعة الدلتا - كلية الذكاء الاصطناعي"
+      "name": "Delta University - Faculty of Artificial Intelligence"
     },
     "knowsAbout": ["Artificial Intelligence", "Machine Learning", "Web Development", "Python", "React", "Node.js"],
     "sameAs": [
-      "https://github.com/mohamedtayel",
-      "https://linkedin.com/in/mohamedtayel",
-      "https://twitter.com/mohamedtayel"
+      "https://github.com/mohamedTayal",
+      "https://linkedin.com/in/mohamedTayal",
+      "https://twitter.com/mohamedTayal"
     ]
   }
   </script>
@@ -864,3 +1307,5 @@
   </script>
 </body>
 </html>
+
+
