@@ -1,110 +1,99 @@
-// ============================================
-// Database Seed Script
-// إنشاء مستخدم Admin افتراضي
-// ============================================
-
 import 'dotenv/config';
 import bcrypt from 'bcryptjs';
 import prisma from './lib/prisma.js';
 
 async function seed() {
-  console.log('🌱 Starting database seed...\n');
-  
+  console.log('Starting database seed...\n');
+
   try {
-    // ========================================
-    // إنشاء مستخدم Admin
-    // ========================================
     const adminEmail = 'admin@mohamed.dev';
     const adminPassword = 'admin123';
-    
+
     const existingAdmin = await prisma.adminUser.findUnique({
       where: { email: adminEmail }
     });
-    
+
     if (existingAdmin) {
-      console.log('ℹ️  Admin user already exists');
+      console.log('Admin user already exists, skipping admin creation step.');
     } else {
       const passwordHash = await bcrypt.hash(adminPassword, 12);
-      
-      const admin = await prisma.adminUser.create({
+
+      await prisma.adminUser.create({
         data: {
-          name: 'محمد طايل',
+          name: 'Default Admin',
           email: adminEmail,
           passwordHash,
           role: 'ADMIN',
           isActive: true
         }
       });
-      
-      console.log('✅ Admin user created:');
-      console.log(`   📧 Email: ${adminEmail}`);
-      console.log(`   🔑 Password: ${adminPassword}`);
-      console.log(`   👤 Name: ${admin.name}`);
+
+      console.log('Admin user created with credentials:');
+      console.log(`  Email:    ${adminEmail}`);
+      console.log(`  Password: ${adminPassword}`);
     }
-    
-    // ========================================
-    // إنشاء طلبات تواصل تجريبية
-    // ========================================
+
     const existingRequests = await prisma.contactRequest.count();
-    
+
     if (existingRequests === 0) {
       const demoRequests = [
         {
-          name: 'أحمد محمد',
+          name: 'Ahmed Hussein',
           email: 'ahmed@example.com',
           phone: '01012345678',
-          company: 'شركة التقنية',
-          subject: 'مشروع AI',
-          budget: '1500$ - 5000$',
-          message: 'أريد بناء نظام تصنيف صور باستخدام الذكاء الاصطناعي لمشروعي التجاري. أحتاج نموذج يمكنه التعرف على المنتجات المختلفة.',
+          company: 'Cairo Innovation Labs',
+          subject: 'AI powered analytics dashboard',
+          budget: '$1,500 - $5,000',
+          message:
+            'We are looking to build a lightweight analytics dashboard that showcases our AI results to clients. The project should include a modern UI, real-time charts, and a secure admin area for our team.',
           status: 'NEW' as const
         },
         {
-          name: 'سارة علي',
+          name: 'Sara Ibrahim',
           email: 'sara@example.com',
           phone: '01098765432',
-          company: 'فريلانسر',
-          subject: 'تطوير ويب',
-          budget: '500$ - 1500$',
-          message: 'أحتاج موقع شخصي احترافي مع لوحة تحكم كاملة. يجب أن يكون الموقع سريع وجميل التصميم مع دعم للغة العربية.',
+          company: 'Digital Reach Agency',
+          subject: 'Full-stack web revamp',
+          budget: '$3,000 - $8,000',
+          message:
+            'Our agency needs to overhaul its main website with a fast landing page, blog, and CRM integration. We have a detailed brief ready and want to launch within eight weeks.',
           status: 'IN_REVIEW' as const
         },
         {
-          name: 'محمود حسن',
+          name: 'Mahmoud Ali',
           email: 'mahmoud@example.com',
           phone: '01155555555',
-          company: 'شركة البيع',
-          subject: 'تحليل بيانات',
-          budget: 'أقل من 500$',
-          message: 'أريد تحليل بيانات المبيعات الخاصة بشركتي واستخراج insights مفيدة لتحسين الأداء واتخاذ قرارات أفضل.',
+          company: 'Alexandria Robotics',
+          subject: 'IoT monitoring dashboard',
+          budget: '$5,000 - $10,000',
+          message:
+            'We require a dashboard to track the health of deployed IoT devices with role-based access and automated notifications. The data source is a PostgreSQL database that we already manage.',
           status: 'CONTACTED' as const
         },
         {
-          name: 'فاطمة أحمد',
+          name: 'Fatma Nabil',
           email: 'fatma@example.com',
           phone: '01234567890',
-          subject: 'استشارة',
-          budget: 'غير محدد',
-          message: 'أريد استشارة تقنية حول أفضل الأدوات والتقنيات لبناء تطبيق ذكاء اصطناعي للتعرف على النصوص العربية.',
+          subject: 'Personal portfolio redesign',
+          budget: 'Under $1,500',
+          message:
+            'I would like to redesign my personal portfolio with light animations, a CMS for case studies, and bilingual content. I have a style guide and copy ready to go.',
           status: 'NEW' as const
         }
       ];
-      
-      for (const request of demoRequests) {
-        await prisma.contactRequest.create({
-          data: request
-        });
-      }
-      
-      console.log(`\n✅ Created ${demoRequests.length} demo contact requests`);
+
+      await prisma.contactRequest.createMany({
+        data: demoRequests
+      });
+
+      console.log(`Created ${demoRequests.length} demo contact requests.`);
     } else {
-      console.log(`ℹ️  ${existingRequests} contact requests already exist`);
+      console.log(`${existingRequests} contact requests already exist, skipping demo seed.`);
     }
-    
-    console.log('\n✨ Database seed completed successfully!\n');
-    
+
+    console.log('\nDatabase seed completed successfully.\n');
   } catch (error) {
-    console.error('❌ Seed error:', error);
+    console.error('Seed error:', error);
     process.exit(1);
   } finally {
     await prisma.$disconnect();

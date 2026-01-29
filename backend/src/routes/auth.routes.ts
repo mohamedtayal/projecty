@@ -1,7 +1,3 @@
-// ============================================
-// Authentication Routes
-// ============================================
-
 import { Router, Request, Response } from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
@@ -9,50 +5,57 @@ import prisma from '../lib/prisma.js';
 import { authenticate } from '../middleware/auth.js';
 
 const router = Router();
+const JWT_SECRET = process.env.JWT_SECRET;
 
-// ============================================
-// POST /api/auth/login - تسجيل الدخول
-// ============================================
+if (!JWT_SECRET) {
+  throw new Error('JWT_SECRET environment variable is required');
+}
+
+const INVALID_CREDENTIALS = 'Unable to authenticate with the provided credentials';
+
+const sanitizeEmail = (value: unknown): string =>
+  typeof value === 'string' ? value.trim().toLowerCase() : '';
+
+const sanitizePassword = (value: unknown): string =>
+  typeof value === 'string' ? value : '';
+
 router.post('/login', async (req: Request, res: Response): Promise<void> => {
   try {
-    const { email, password } = req.body;
-    
-    // التحقق من البيانات
+    const email = sanitizeEmail(req.body.email);
+    const password = sanitizePassword(req.body.password);
+
     if (!email || !password) {
-      res.status(400).json({ error: 'البريد وكلمة المرور مطلوبان' });
+      res.status(400).json({ error: 'Email and password are both required' });
       return;
     }
-    
-    // البحث عن المستخدم
+
     const user = await prisma.adminUser.findUnique({
       where: { email }
     });
-    
+
     if (!user || !user.isActive) {
-      res.status(401).json({ error: 'بيانات الدخول غير صحيحة' });
+      res.status(401).json({ error: INVALID_CREDENTIALS });
       return;
     }
-    
-    // التحقق من كلمة المرور
+
     const validPassword = await bcrypt.compare(password, user.passwordHash);
+
     if (!validPassword) {
-      res.status(401).json({ error: 'بيانات الدخول غير صحيحة' });
+      res.status(401).json({ error: INVALID_CREDENTIALS });
       return;
     }
-    
-    // تحديث آخر تسجيل دخول
+
     await prisma.adminUser.update({
       where: { id: user.id },
       data: { lastLoginAt: new Date() }
     });
-    
-    // إنشاء JWT Token
+
     const token = jwt.sign(
       { id: user.id, email: user.email, role: user.role },
-      process.env.JWT_SECRET!,
+      JWT_SECRET,
       { expiresIn: '7d' }
     );
-    
+
     res.json({
       success: true,
       token,
@@ -65,13 +68,10 @@ router.post('/login', async (req: Request, res: Response): Promise<void> => {
     });
   } catch (error) {
     console.error('Login error:', error);
-    res.status(500).json({ error: 'خطأ في الخادم' });
+    res.status(500).json({ error: 'Unable to log in at the moment' });
   }
 });
 
-// ============================================
-// GET /api/auth/me - بيانات المستخدم الحالي
-// ============================================
 router.get('/me', authenticate, async (req: Request, res: Response): Promise<void> => {
   try {
     const user = await prisma.adminUser.findUnique({
@@ -85,16 +85,16 @@ router.get('/me', authenticate, async (req: Request, res: Response): Promise<voi
         createdAt: true
       }
     });
-    
+
     if (!user) {
-      res.status(404).json({ error: 'المستخدم غير موجود' });
+      res.status(404).json({ error: 'Administrator account could not be found' });
       return;
     }
-    
+
     res.json(user);
   } catch (error) {
-    console.error('Get me error:', error);
-    res.status(500).json({ error: 'خطأ في الخادم' });
+    console.error('Get current user error:', error);
+    res.status(500).json({ error: 'Unable to load the current user profile' });
   }
 });
 

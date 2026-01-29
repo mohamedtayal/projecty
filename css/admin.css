@@ -385,11 +385,11 @@ body {
   font-weight: 600;
 }
 
-.status-جديد { background: rgba(99, 102, 241, 0.1); color: var(--primary); }
-.status-قيد-المراجعة { background: rgba(245, 158, 11, 0.1); color: var(--warning); }
-.status-تم-التواصل { background: rgba(16, 185, 129, 0.1); color: var(--success); }
-.status-مغلق { background: rgba(148, 163, 184, 0.1); color: var(--slate-400); }
-.status-مرفوض { background: rgba(239, 68, 68, 0.1); color: var(--danger); }
+.status-NEW { background: rgba(99, 102, 241, 0.1); color: var(--primary); }
+.status-IN_REVIEW { background: rgba(245, 158, 11, 0.1); color: var(--warning); }
+.status-CONTACTED { background: rgba(16, 185, 129, 0.1); color: var(--success); }
+.status-CLOSED { background: rgba(148, 163, 184, 0.1); color: var(--slate-400); }
+.status-REJECTED { background: rgba(239, 68, 68, 0.1); color: var(--danger); }
 
 /* Action Buttons */
 .action-btn {
