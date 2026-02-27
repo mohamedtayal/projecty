@@ -1,0 +1,10 @@
+backend/
+node_modules/
+.env
+.env.local
+*.tmp
+*.temp
+setup.bat
+live-index.html
+live-style.css
+Untitled-1.md
