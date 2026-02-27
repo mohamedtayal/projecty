@@ -1,0 +1,21 @@
+{
+    "name": "mohamed-portfolio",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "postinstall": "prisma generate",
+        "db:push": "prisma db push",
+        "db:seed": "node prisma/seed.js",
+        "db:migrate": "prisma migrate deploy",
+        "vercel-build": "prisma generate"
+    },
+    "dependencies": {
+        "@prisma/client": "^5.22.0",
+        "bcryptjs": "^2.4.3",
+        "jsonwebtoken": "^9.0.2",
+        "resend": "^4.0.0"
+    },
+    "devDependencies": {
+        "prisma": "^5.22.0"
+    }
+}

@@ -172,85 +172,9 @@ filterBtns.forEach(btn => {
   });
 });
 
-// Contact Form
+// Contact Form — posts to /api/contact (Vercel Serverless)
 const contactForm = document.getElementById('contactForm');
 const formSuccess = document.getElementById('formSuccess');
-const WEB3FORMS_KEY = '65d4f3c3-c6db-47d5-b5a8-baefe0c7d0ed';
-
-const contactConfig = window.APP_CONFIG || {};
-const CONTACT_API_BASE = contactConfig.apiBaseUrl || '';
-const CONTACT_HEALTH_ENDPOINT = contactConfig.backendHealthEndpoint || '/health';
-const CONTACT_TIMEOUT = contactConfig.backendRequestTimeout || 6000;
-const FORCE_DEMO_MODE = contactConfig.demoMode === true;
-const HEALTH_CACHE_MS = 60 * 1000;
-let contactBackendHealthy = false;
-let lastHealthCheck = 0;
-
-const normalizeEndpoint = (endpoint) => (endpoint.startsWith('/') ? endpoint : `/${endpoint}`);
-
-const canSubmitViaBackend = async (forceCheck = false) => {
-  if (FORCE_DEMO_MODE || !CONTACT_API_BASE) {
-    contactBackendHealthy = false;
-    return false;
-  }
-
-  const now = Date.now();
-  if (!forceCheck && contactBackendHealthy && now - lastHealthCheck < HEALTH_CACHE_MS) {
-    return true;
-  }
-
-  lastHealthCheck = now;
-
-  try {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), CONTACT_TIMEOUT);
-    const response = await fetch(
-      `${CONTACT_API_BASE}${normalizeEndpoint(CONTACT_HEALTH_ENDPOINT)}`,
-      { signal: controller.signal }
-    );
-    clearTimeout(timeout);
-    contactBackendHealthy = response.ok;
-  } catch (error) {
-    contactBackendHealthy = false;
-  }
-
-  return contactBackendHealthy;
-};
-
-const submitViaBackend = async (payload) => {
-  const response = await fetch(`${CONTACT_API_BASE}/contact`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
-  });
-
-  const data = await response.json().catch(() => null);
-
-  if (!response.ok) {
-    throw new Error(data?.error || 'Unable to submit the request');
-  }
-
-  return data;
-};
-
-const submitViaWeb3Forms = async (payload) => {
-  const response = await fetch('https://api.web3forms.com/submit', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    },
-    body: JSON.stringify(payload)
-  });
-
-  const result = await response.json();
-
-  if (!result.success) {
-    throw new Error(result.message || 'Web3Forms submission failed');
-  }
-
-  return result;
-};
 
 if (contactForm) {
   contactForm.addEventListener('submit', async (event) => {
@@ -274,50 +198,29 @@ if (contactForm) {
       company: getValue('company'),
       subject: getValue('subject') || 'General inquiry',
       budget: getValue('budget'),
-      message: getValue('message')
+      message: getValue('message'),
     };
-
-    const web3Payload = {
-      access_key: WEB3FORMS_KEY,
-      name: payload.name,
-      email: payload.email,
-      phone: payload.phone || 'Not provided',
-      subject: `Portfolio contact: ${payload.subject}`,
-      message: payload.message,
-      company: payload.company || 'Not provided',
-      budget: payload.budget || 'Not provided',
-      from_name: 'Mohamed Tayal Portfolio'
-    };
-
-    let submitted = false;
 
     try {
-      if (await canSubmitViaBackend(true)) {
-        await submitViaBackend(payload);
-        submitted = true;
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        if (formSuccess) {
+          contactForm.style.display = 'none';
+          formSuccess.style.display = 'block';
+        }
+        contactForm.reset();
+      } else {
+        throw new Error(data.error || 'Submission failed');
       }
     } catch (error) {
-      console.error('Backend contact submission failed:', error);
-      contactBackendHealthy = false;
-    }
-
-    if (!submitted && WEB3FORMS_KEY) {
-      try {
-        await submitViaWeb3Forms(web3Payload);
-        submitted = true;
-      } catch (error) {
-        console.error('Web3Forms submission failed:', error);
-      }
-    }
-
-    if (submitted) {
-      if (formSuccess) {
-        contactForm.style.display = 'none';
-        formSuccess.style.display = 'block';
-      }
-      contactForm.reset();
-    } else {
-      // Visible error UI instead of alert()
+      console.error('Contact form error:', error);
       submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Failed to send';
       submitBtn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
       submitBtn.style.borderColor = '#dc2626';

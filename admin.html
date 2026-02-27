@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
   <link href="css/admin.css" rel="stylesheet">
 </head>
+
 <body>
   <!-- Login Page -->
   <div id="loginPage" class="login-page">
@@ -21,16 +23,16 @@
       <form id="loginForm">
         <div class="form-group">
           <label><i class="fas fa-user"></i> البريد الإلكتروني</label>
-          <input type="text" id="username" class="form-control" value="admin@mohamed.dev">
+          <input type="email" id="username" class="form-control" placeholder="admin@example.com" required>
         </div>
         <div class="form-group">
           <label><i class="fas fa-lock"></i> كلمة المرور</label>
-          <input type="password" id="password" class="form-control" value="admin123">
+          <input type="password" id="password" class="form-control" placeholder="••••••••" required>
         </div>
         <button type="submit" class="btn btn-primary w-100">
           <i class="fas fa-sign-in-alt"></i> دخول
         </button>
-        <p class="login-hint">للتجربة: admin@mohamed.dev / admin123</p>
+
       </form>
     </div>
   </div>
@@ -94,7 +96,7 @@
           <h1>نظرة عامة</h1>
           <p>مرحباً بك في لوحة التحكم</p>
         </div>
-        
+
         <!-- Stats Cards -->
         <div class="stats-grid">
           <div class="stat-card">
@@ -218,7 +220,9 @@
         <div class="row">
           <div class="col-md-6">
             <div class="card">
-              <div class="card-header"><h3>توزيع الطلبات حسب الموضوع</h3></div>
+              <div class="card-header">
+                <h3>توزيع الطلبات حسب الموضوع</h3>
+              </div>
               <div class="card-body">
                 <div id="subjectChart" class="chart-placeholder"></div>
               </div>
@@ -226,7 +230,9 @@
           </div>
           <div class="col-md-6">
             <div class="card">
-              <div class="card-header"><h3>توزيع الطلبات حسب الحالة</h3></div>
+              <div class="card-header">
+                <h3>توزيع الطلبات حسب الحالة</h3>
+              </div>
               <div class="card-body">
                 <div id="statusChart" class="chart-placeholder"></div>
               </div>
@@ -276,4 +282,5 @@
   <script src="js/app-config.js"></script>
   <script src="js/admin.js"></script>
 </body>
+
 </html>
