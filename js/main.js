@@ -18,13 +18,13 @@ let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
   const currentScroll = window.scrollY;
-  
+
   if (currentScroll > 50) {
     navbar.classList.add('scrolled');
   } else {
     navbar.classList.remove('scrolled');
   }
-  
+
   lastScroll = currentScroll;
 });
 
@@ -34,10 +34,10 @@ document.querySelectorAll('.btn-primary, .btn-outline-light').forEach(btn => {
     const rect = btn.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
-    
+
     btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
   });
-  
+
   btn.addEventListener('mouseleave', () => {
     btn.style.transform = '';
   });
@@ -45,7 +45,7 @@ document.querySelectorAll('.btn-primary, .btn-outline-light').forEach(btn => {
 
 // Smooth Scroll for Navigation Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
+  anchor.addEventListener('click', function (e) {
     e.preventDefault();
     const target = document.querySelector(this.getAttribute('href'));
     if (target) {
@@ -73,7 +73,7 @@ window.addEventListener('scroll', () => {
     const sectionTop = section.offsetTop - 100;
     const sectionId = section.getAttribute('id');
     const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-    
+
     if (navLink) {
       if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
         navLink.classList.add('active');
@@ -93,24 +93,24 @@ const counterObserver = new IntersectionObserver((entries) => {
       const target = parseInt(counter.getAttribute('data-target'));
       const duration = 2500;
       const startTime = performance.now();
-      
+
       const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
-      
+
       const updateCounter = (currentTime) => {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
         const easedProgress = easeOutQuart(progress);
         const current = Math.floor(easedProgress * target);
-        
+
         counter.textContent = current;
-        
+
         if (progress < 1) {
           requestAnimationFrame(updateCounter);
         } else {
           counter.textContent = target + '+';
         }
       };
-      
+
       requestAnimationFrame(updateCounter);
       counterObserver.unobserve(counter);
     }
@@ -149,12 +149,12 @@ filterBtns.forEach(btn => {
     // Update active button with ripple effect
     filterBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    
+
     const filter = btn.getAttribute('data-filter');
-    
+
     portfolioItems.forEach((item, index) => {
       const category = item.getAttribute('data-category');
-      
+
       if (filter === 'all' || category === filter) {
         item.style.display = 'block';
         setTimeout(() => {
@@ -317,7 +317,17 @@ if (contactForm) {
       }
       contactForm.reset();
     } else {
-      alert('We could not submit your message. Please try again in a few moments.');
+      // Visible error UI instead of alert()
+      submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Failed to send';
+      submitBtn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+      submitBtn.style.borderColor = '#dc2626';
+      submitBtn.disabled = false;
+      setTimeout(function () {
+        submitBtn.innerHTML = originalText;
+        submitBtn.style.background = '';
+        submitBtn.style.borderColor = '';
+      }, 3000);
+      return;
     }
 
     submitBtn.innerHTML = originalText;
@@ -329,7 +339,7 @@ if (contactForm) {
 function resetForm() {
   const contactForm = document.getElementById('contactForm');
   const formSuccess = document.getElementById('formSuccess');
-  
+
   contactForm.reset();
   contactForm.style.display = 'block';
   formSuccess.style.display = 'none';
@@ -353,10 +363,10 @@ if (typingText) {
   let textIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
-  
+
   function type() {
     const currentText = texts[textIndex];
-    
+
     if (isDeleting) {
       typingText.textContent = currentText.substring(0, charIndex - 1);
       charIndex--;
@@ -364,18 +374,18 @@ if (typingText) {
       typingText.textContent = currentText.substring(0, charIndex + 1);
       charIndex++;
     }
-    
+
     if (!isDeleting && charIndex === currentText.length) {
       setTimeout(() => isDeleting = true, 2000);
     } else if (isDeleting && charIndex === 0) {
       isDeleting = false;
       textIndex = (textIndex + 1) % texts.length;
     }
-    
+
     const speed = isDeleting ? 50 : 100;
     setTimeout(type, speed);
   }
-  
+
   type();
 }
 
@@ -383,7 +393,7 @@ if (typingText) {
 function createParticles() {
   const particles = document.getElementById('particles');
   if (!particles) return;
-  
+
   for (let i = 0; i < 60; i++) {
     const particle = document.createElement('div');
     const size = Math.random() * 4 + 2;
@@ -463,7 +473,7 @@ document.querySelectorAll('.service-card').forEach(card => {
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
+
     card.style.setProperty('--mouse-x', `${x}px`);
     card.style.setProperty('--mouse-y', `${y}px`);
   });
@@ -474,7 +484,7 @@ document.addEventListener('mousemove', (e) => {
   const floatIcons = document.querySelectorAll('.float-icon');
   const mouseX = e.clientX / window.innerWidth - 0.5;
   const mouseY = e.clientY / window.innerHeight - 0.5;
-  
+
   floatIcons.forEach((icon, i) => {
     const speed = (i + 1) * 10;
     const x = mouseX * speed;
@@ -515,27 +525,27 @@ const rubiksCube = document.querySelector('.rubiks-cube');
 
 if (rubiksCube) {
   let isHovering = false;
-  
+
   rubiksCube.parentElement.addEventListener('mouseenter', () => {
     isHovering = true;
     rubiksCube.style.animationPlayState = 'paused';
   });
-  
+
   rubiksCube.parentElement.addEventListener('mouseleave', () => {
     isHovering = false;
     rubiksCube.style.animationPlayState = 'running';
   });
-  
+
   rubiksCube.parentElement.addEventListener('mousemove', (e) => {
     if (!isHovering) return;
-    
+
     const rect = rubiksCube.parentElement.getBoundingClientRect();
     const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
     const y = (e.clientY - rect.top - rect.height / 2) / rect.height;
-    
+
     const rotateX = -25 + y * 30;
     const rotateY = -40 + x * 60;
-    
+
     rubiksCube.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
   });
 }
@@ -544,7 +554,7 @@ if (rubiksCube) {
 // Clean, production-ready letter-by-letter typing effect
 (function initTypingAnimation() {
   'use strict';
-  
+
   // ===== CONFIGURATION =====
   const CONFIG = {
     text: 'Mohamed Tayal',  // Text to type (easily changeable)
@@ -552,16 +562,16 @@ if (rubiksCube) {
     startDelay: 800,        // Delay before typing starts
     cursorHideDelay: 2000   // Delay before cursor fades out
   };
-  
+
   // ===== DOM ELEMENTS =====
   const nameElement = document.getElementById('typingName');
   const cursorElement = document.getElementById('typingCursor');
-  
+
   if (!nameElement) return;
-  
+
   // ===== REDUCED MOTION CHECK =====
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  
+
   if (prefersReducedMotion) {
     // Show text instantly without animation
     nameElement.textContent = CONFIG.text;
@@ -569,11 +579,11 @@ if (rubiksCube) {
     if (cursorElement) cursorElement.style.display = 'none';
     return;
   }
-  
+
   // ===== TYPING ENGINE =====
   let charIndex = 0;
   let typingInterval = null;
-  
+
   function typeNextChar() {
     if (charIndex < CONFIG.text.length) {
       // Append next character
@@ -583,7 +593,7 @@ if (rubiksCube) {
       // Typing complete
       clearInterval(typingInterval);
       nameElement.classList.add('typing-complete');
-      
+
       // Fade out cursor after delay
       if (cursorElement) {
         setTimeout(() => {
@@ -592,22 +602,22 @@ if (rubiksCube) {
       }
     }
   }
-  
+
   function startTyping() {
     // Ensure element is empty before starting
     nameElement.textContent = '';
     charIndex = 0;
-    
+
     // Start typing interval
     typingInterval = setInterval(typeNextChar, CONFIG.speed);
   }
-  
+
   // ===== INITIALIZATION =====
   function init() {
     // Start typing after initial delay
     setTimeout(startTyping, CONFIG.startDelay);
   }
-  
+
   // Run when DOM is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
@@ -619,17 +629,17 @@ if (rubiksCube) {
 // ========== Interactive 3D Logo ==========
 (function init3DLogo() {
   'use strict';
-  
+
   // Check for reduced motion preference
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReducedMotion) return;
-  
+
   const container = document.getElementById('logo3dContainer');
   const figure = document.getElementById('logo3dFigure');
   const laptop = document.getElementById('logo3dLaptop');
-  
+
   if (!container || !figure) return;
-  
+
   // Configuration
   const config = {
     maxRotationX: 15,  // Max vertical rotation in degrees
@@ -638,7 +648,7 @@ if (rubiksCube) {
     smoothing: 0.12,   // Smoothing factor for animation
     resetDelay: 100    // Delay before resetting position
   };
-  
+
   let currentX = 0;
   let currentY = 0;
   let targetX = 0;
@@ -646,49 +656,49 @@ if (rubiksCube) {
   let isHovering = false;
   let animationId = null;
   let resetTimeout = null;
-  
+
   // Smooth animation loop
   function animate() {
     // Interpolate towards target
     currentX += (targetX - currentX) * config.smoothing;
     currentY += (targetY - currentY) * config.smoothing;
-    
+
     // Apply transforms
     figure.style.transform = `rotateX(${currentX}deg) rotateY(${currentY}deg)`;
-    
+
     if (laptop) {
       // Laptop has extra subtle movement
       const laptopX = currentX * 0.7;
       const laptopY = currentY * 1.2;
       laptop.style.transform = `translateX(-50%) translateZ(30px) rotateX(${laptopX * 0.3}deg) rotateY(${laptopY * 0.2}deg)`;
     }
-    
+
     // Continue animation if values are still changing
     if (Math.abs(targetX - currentX) > 0.01 || Math.abs(targetY - currentY) > 0.01 || isHovering) {
       animationId = requestAnimationFrame(animate);
     }
   }
-  
+
   // Mouse move handler
   function handleMouseMove(e) {
     const rect = container.getBoundingClientRect();
-    
+
     // Calculate mouse position relative to center (-1 to 1)
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
-    
+
     const mouseX = (e.clientX - centerX) / (rect.width / 2);
     const mouseY = (e.clientY - centerY) / (rect.height / 2);
-    
+
     // Clamp values
     const clampedX = Math.max(-1, Math.min(1, mouseX));
     const clampedY = Math.max(-1, Math.min(1, mouseY));
-    
+
     // Set target rotations (inverted for natural feel)
     targetY = clampedX * config.maxRotationY;
     targetX = -clampedY * config.maxRotationX;
   }
-  
+
   // Mouse enter handler
   function handleMouseEnter() {
     isHovering = true;
@@ -701,11 +711,11 @@ if (rubiksCube) {
       animationId = requestAnimationFrame(animate);
     }
   }
-  
+
   // Mouse leave handler
   function handleMouseLeave() {
     isHovering = false;
-    
+
     // Reset to center with delay
     resetTimeout = setTimeout(() => {
       targetX = 0;
@@ -715,22 +725,71 @@ if (rubiksCube) {
       }
     }, config.resetDelay);
   }
-  
+
   // Attach event listeners
   container.addEventListener('mousemove', handleMouseMove);
   container.addEventListener('mouseenter', handleMouseEnter);
   container.addEventListener('mouseleave', handleMouseLeave);
-  
+
   // Touch support for mobile
   container.addEventListener('touchmove', (e) => {
     const touch = e.touches[0];
     handleMouseMove({ clientX: touch.clientX, clientY: touch.clientY });
   }, { passive: true });
-  
+
   container.addEventListener('touchstart', handleMouseEnter, { passive: true });
   container.addEventListener('touchend', handleMouseLeave, { passive: true });
-  
+
 })();
 
 
 
+
+// ========== Accessible Mobile Navigation ==========
+// ESC to close, aria-expanded sync, icon swap, click-outside-to-close
+(function initAccessibleMobileNav() {
+  'use strict';
+
+  const navToggler = document.getElementById('navToggler');
+  const navTogglerIcon = document.getElementById('navTogglerIcon');
+  const navbarCollapseEl = document.getElementById('navbarNav');
+
+  if (!navToggler || !navbarCollapseEl) return;
+
+  // Sync aria-expanded when Bootstrap toggles the menu
+  const observer = new MutationObserver(() => {
+    const isOpen = navbarCollapseEl.classList.contains('show');
+    navToggler.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+    // Swap hamburger icon to close icon
+    if (navTogglerIcon) {
+      navTogglerIcon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
+    }
+  });
+
+  observer.observe(navbarCollapseEl, {
+    attributes: true,
+    attributeFilter: ['class']
+  });
+
+  // ESC key closes the mobile menu
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navbarCollapseEl.classList.contains('show')) {
+      navbarCollapseEl.classList.remove('show');
+      navToggler.setAttribute('aria-expanded', 'false');
+      navToggler.focus();
+    }
+  });
+
+  // Click outside the nav to close
+  document.addEventListener('click', (e) => {
+    if (
+      navbarCollapseEl.classList.contains('show') &&
+      !navbarCollapseEl.contains(e.target) &&
+      !navToggler.contains(e.target)
+    ) {
+      navbarCollapseEl.classList.remove('show');
+      navToggler.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();

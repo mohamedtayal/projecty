@@ -1,45 +1,53 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <!-- SEO Meta Tags -->
   <title>Mohamed Tayal | AI Developer & Full Stack Developer</title>
-  <meta name="description" content="Mohamed Tayal - AI Student and Full Stack Developer. Specializing in AI solutions, web applications, and data analysis. Delta University - Egypt">
-  <meta name="keywords" content="Mohamed Tayal, AI Developer, Full Stack Developer, Artificial Intelligence, Web Development, Python, React, Machine Learning, Egypt">
+  <meta name="description"
+    content="Mohamed Tayal - AI Student and Full Stack Developer. Specializing in AI solutions, web applications, and data analysis. Delta University - Egypt">
+  <meta name="keywords"
+    content="Mohamed Tayal, AI Developer, Full Stack Developer, Artificial Intelligence, Web Development, Python, React, Machine Learning, Egypt">
   <meta name="author" content="Mohamed Tayal">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://mohamedTayal.dev">
-  
+  <link rel="canonical" href="https://tayalz.vercel.app/">
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://mohamedTayal.dev">
+  <meta property="og:url" content="https://tayalz.vercel.app/">
   <meta property="og:title" content="Mohamed Tayal | AI Developer & Full Stack Developer">
-  <meta property="og:description" content="AI Student and Full Stack Developer. Specializing in AI solutions and web applications">
-  <meta property="og:image" content="https://mohamedTayal.dev/images/og-image.jpg">
+  <meta property="og:description"
+    content="AI Student and Full Stack Developer. Specializing in AI solutions and web applications">
+  <meta property="og:image" content="https://tayalz.vercel.app/images/og-image.jpg">
   <meta property="og:locale" content="en_US">
-  
+
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Mohamed Tayal | AI Developer">
   <meta name="twitter:description" content="AI Student and Full Stack Developer specializing in AI and web development">
-  
+  <meta name="twitter:image" content="https://tayalz.vercel.app/images/og-image.jpg">
+
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
-  
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+
   <!-- Preconnect for Performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  
+
   <!-- Fonts & Styles -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
-  
+
   <!-- Loading Screen Style -->
   <style>
     .page-loader {
@@ -55,19 +63,23 @@
       z-index: 99999;
       transition: opacity 0.6s ease, visibility 0.6s ease;
     }
+
     .page-loader.hidden {
       opacity: 0;
       visibility: hidden;
     }
+
     .loader-content {
       text-align: center;
     }
+
     .loader-spinner {
       width: 70px;
       height: 70px;
       position: relative;
       margin: 0 auto 25px;
     }
+
     .loader-spinner::before,
     .loader-spinner::after {
       content: '';
@@ -76,17 +88,20 @@
       border-radius: 50%;
       border: 4px solid transparent;
     }
+
     .loader-spinner::before {
       border-top-color: #6366f1;
       border-right-color: #6366f1;
       animation: spin 1.2s linear infinite;
     }
+
     .loader-spinner::after {
       border-bottom-color: #8b5cf6;
       border-left-color: #8b5cf6;
       animation: spin 1.2s linear infinite reverse;
       inset: 8px;
     }
+
     .loader-text {
       color: #fff;
       font-family: 'Cairo', sans-serif;
@@ -94,14 +109,16 @@
       font-weight: 500;
       opacity: 0.9;
     }
+
     .loader-progress {
       width: 200px;
       height: 4px;
-      background: rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.1);
       border-radius: 10px;
       margin: 20px auto 0;
       overflow: hidden;
     }
+
     .loader-progress-bar {
       height: 100%;
       background: linear-gradient(90deg, #6366f1, #8b5cf6);
@@ -109,16 +126,29 @@
       width: 0%;
       animation: progress 1.5s ease-out forwards;
     }
+
     @keyframes spin {
-      to { transform: rotate(360deg); }
+      to {
+        transform: rotate(360deg);
+      }
     }
+
     @keyframes progress {
-      0% { width: 0%; }
-      50% { width: 70%; }
-      100% { width: 100%; }
+      0% {
+        width: 0%;
+      }
+
+      50% {
+        width: 70%;
+      }
+
+      100% {
+        width: 100%;
+      }
     }
   </style>
 </head>
+
 <body>
   <!-- Page Loader -->
   <div class="page-loader" id="pageLoader">
@@ -137,8 +167,9 @@
       <a class="navbar-brand" href="#">
         <span>Mohamed Tayal</span>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id="navToggler">
+        <i class="fas fa-bars" id="navTogglerIcon"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto">
@@ -150,11 +181,11 @@
           <li class="nav-item"><a class="nav-link" href="#certificates">Certificates</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
-        <div class="toggle normal d-none d-lg-block me-3">
+        <div class="toggle normal me-3 nav-toggle-wrapper">
           <input id="normal" type="checkbox" aria-label="Toggle dark/light mode">
           <label class="toggle-item" for="normal"></label>
         </div>
-        <a href="#contact" class="btn btn-primary d-none d-lg-block">
+        <a href="#contact" class="btn btn-primary nav-cta-btn">
           <i class="fas fa-rocket me-2"></i>
           Start Project
         </a>
@@ -173,12 +204,16 @@
             <span class="typing-static-css">Hi, I'm </span><span class="typing-name-css">Mohamed Tayal</span>
           </h1>
           <p class="hero-description">
-            I build intelligent solutions that bridge the gap between cutting-edge AI research and production-ready applications. Focused on machine learning, full-stack development, and creating impactful digital experiences.
+            I build intelligent solutions that bridge the gap between cutting-edge AI research and production-ready
+            applications. Focused on machine learning, full-stack development, and creating impactful digital
+            experiences.
           </p>
           <div class="hero-cta">
             <a href="#contact" class="btn-hero-primary">
               <span>Contact Me</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </a>
             <a href="#portfolio" class="btn-hero-secondary">
               <span>My Work</span>
@@ -255,7 +290,7 @@
                 <div class="logo-3d-scene">
                   <!-- Ambient glow layer -->
                   <div class="logo-3d-glow"></div>
-                  
+
                   <!-- 3D Figure Container -->
                   <div class="logo-3d-figure" id="logo3dFigure">
                     <!-- Head -->
@@ -263,20 +298,20 @@
                       <div class="head-shape"></div>
                       <div class="head-highlight"></div>
                     </div>
-                    
+
                     <!-- Body/Torso -->
                     <div class="figure-body">
                       <div class="body-shape"></div>
                       <div class="shoulder-left"></div>
                       <div class="shoulder-right"></div>
                     </div>
-                    
+
                     <!-- Arms -->
                     <div class="figure-arms">
                       <div class="arm-left"></div>
                       <div class="arm-right"></div>
                     </div>
-                    
+
                     <!-- Laptop -->
                     <div class="figure-laptop" id="logo3dLaptop">
                       <div class="laptop-screen">
@@ -289,11 +324,11 @@
                         <div class="laptop-keyboard"></div>
                       </div>
                     </div>
-                    
+
                     <!-- Desk surface -->
                     <div class="figure-desk"></div>
                   </div>
-                  
+
                   <!-- Floating particles -->
                   <div class="logo-3d-particles">
                     <span class="particle p1"></span>
@@ -312,19 +347,21 @@
         <div class="col-lg-7" data-aos="fade-right">
           <div class="section-badge">About Me</div>
           <h2 class="section-title">Building the Future with AI and Code</h2>
-          
+
           <div class="about-headline">
             <p class="lead">
-              <strong>Mohamed Tayal</strong> — AI Student at Delta University, combining academic research in Machine Learning with practical application as a Full Stack Developer.
+              <strong>Mohamed Tayal</strong> — AI Student at Delta University, combining academic research in Machine
+              Learning with practical application as a Full Stack Developer.
             </p>
           </div>
-          
+
           <div class="about-summary">
             <p>
-              I don't just study theories, I turn them into real solutions. From machine learning models to full-stack web applications — I work on projects that make a tangible difference.
+              I don't just study theories, I turn them into real solutions. From machine learning models to full-stack
+              web applications — I work on projects that make a tangible difference.
             </p>
           </div>
-          
+
           <div class="about-focus">
             <h4><i class="fas fa-crosshairs"></i> Current Focus</h4>
             <ul class="focus-list">
@@ -333,7 +370,7 @@
               <li><i class="fas fa-chart-line"></i> Transforming data into smart decisions</li>
             </ul>
           </div>
-          
+
           <div class="about-info">
             <div class="info-item">
               <i class="fas fa-graduation-cap"></i>
@@ -364,7 +401,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="about-cta">
             <a href="#contact" class="btn btn-primary">
               <i class="fas fa-paper-plane"></i>
@@ -425,7 +462,7 @@
         <h2 class="section-title">Technologies I Master</h2>
         <p class="section-subtitle">A comprehensive set of technical skills in AI and web development</p>
       </div>
-      
+
       <div class="row g-4">
         <!-- AI & ML -->
         <div class="col-lg-6" data-aos="fade-up">
@@ -437,23 +474,33 @@
             <div class="skills-list">
               <div class="skill-item">
                 <div class="skill-info"><span>Python</span><span>90%</span></div>
-                <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%"></div>
+                </div>
               </div>
               <div class="skill-item">
                 <div class="skill-info"><span>TensorFlow / Keras</span><span>80%</span></div>
-                <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 80%"></div>
+                </div>
               </div>
               <div class="skill-item">
                 <div class="skill-info"><span>PyTorch</span><span>75%</span></div>
-                <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 75%"></div>
+                </div>
               </div>
               <div class="skill-item">
                 <div class="skill-info"><span>Scikit-learn</span><span>85%</span></div>
-                <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
               </div>
               <div class="skill-item">
                 <div class="skill-info"><span>Data Analysis (Pandas/NumPy)</span><span>88%</span></div>
-                <div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 88%"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -469,23 +516,33 @@
             <div class="skills-list">
               <div class="skill-item">
                 <div class="skill-info"><span>HTML / CSS</span><span>95%</span></div>
-                <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 95%"></div>
+                </div>
               </div>
               <div class="skill-item">
                 <div class="skill-info"><span>JavaScript</span><span>85%</span></div>
-                <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
               </div>
               <div class="skill-item">
                 <div class="skill-info"><span>React.js</span><span>80%</span></div>
-                <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 80%"></div>
+                </div>
               </div>
               <div class="skill-item">
                 <div class="skill-info"><span>Bootstrap / Tailwind</span><span>90%</span></div>
-                <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%"></div>
+                </div>
               </div>
               <div class="skill-item">
                 <div class="skill-info"><span>TypeScript</span><span>70%</span></div>
-                <div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 70%"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -501,19 +558,27 @@
             <div class="skills-list">
               <div class="skill-item">
                 <div class="skill-info"><span>Node.js / Express</span><span>82%</span></div>
-                <div class="skill-bar"><div class="skill-progress" style="width: 82%"></div></div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 82%"></div>
+                </div>
               </div>
               <div class="skill-item">
                 <div class="skill-info"><span>Django / Flask</span><span>78%</span></div>
-                <div class="skill-bar"><div class="skill-progress" style="width: 78%"></div></div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 78%"></div>
+                </div>
               </div>
               <div class="skill-item">
                 <div class="skill-info"><span>REST APIs</span><span>85%</span></div>
-                <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
               </div>
               <div class="skill-item">
                 <div class="skill-info"><span>PostgreSQL / MongoDB</span><span>80%</span></div>
-                <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 80%"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -529,19 +594,27 @@
             <div class="skills-list">
               <div class="skill-item">
                 <div class="skill-info"><span>Git / GitHub</span><span>90%</span></div>
-                <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%"></div>
+                </div>
               </div>
               <div class="skill-item">
                 <div class="skill-info"><span>Docker</span><span>70%</span></div>
-                <div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 70%"></div>
+                </div>
               </div>
               <div class="skill-item">
                 <div class="skill-info"><span>Linux</span><span>75%</span></div>
-                <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 75%"></div>
+                </div>
               </div>
               <div class="skill-item">
                 <div class="skill-info"><span>Jupyter / Colab</span><span>92%</span></div>
-                <div class="skill-bar"><div class="skill-progress" style="width: 92%"></div></div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 92%"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -657,7 +730,7 @@
         <h2 class="section-title">My Projects</h2>
         <p class="section-subtitle">A collection of projects I've worked on</p>
       </div>
-      
+
       <!-- Filter Buttons -->
       <div class="portfolio-filter" data-aos="fade-up">
         <button class="filter-btn active" data-filter="all">All</button>
@@ -672,8 +745,8 @@
             <div class="portfolio-image">
               <span class="emoji">🤖</span>
               <div class="portfolio-overlay">
-                <a href="#" class="btn btn-light btn-sm"><i class="fas fa-eye"></i></a>
-                <a href="#" class="btn btn-light btn-sm"><i class="fab fa-github"></i></a>
+                <button class="btn btn-light btn-sm" disabled aria-label="Demo coming soon"><i
+                    class="fas fa-eye"></i></button>
               </div>
             </div>
             <div class="portfolio-content">
@@ -692,8 +765,8 @@
             <div class="portfolio-image">
               <span class="emoji">🛒</span>
               <div class="portfolio-overlay">
-                <a href="#" class="btn btn-light btn-sm"><i class="fas fa-eye"></i></a>
-                <a href="#" class="btn btn-light btn-sm"><i class="fab fa-github"></i></a>
+                <button class="btn btn-light btn-sm" disabled aria-label="Demo coming soon"><i
+                    class="fas fa-eye"></i></button>
               </div>
             </div>
             <div class="portfolio-content">
@@ -712,8 +785,8 @@
             <div class="portfolio-image">
               <span class="emoji">📊</span>
               <div class="portfolio-overlay">
-                <a href="#" class="btn btn-light btn-sm"><i class="fas fa-eye"></i></a>
-                <a href="#" class="btn btn-light btn-sm"><i class="fab fa-github"></i></a>
+                <button class="btn btn-light btn-sm" disabled aria-label="Demo coming soon"><i
+                    class="fas fa-eye"></i></button>
               </div>
             </div>
             <div class="portfolio-content">
@@ -732,8 +805,8 @@
             <div class="portfolio-image">
               <span class="emoji">💬</span>
               <div class="portfolio-overlay">
-                <a href="#" class="btn btn-light btn-sm"><i class="fas fa-eye"></i></a>
-                <a href="#" class="btn btn-light btn-sm"><i class="fab fa-github"></i></a>
+                <button class="btn btn-light btn-sm" disabled aria-label="Demo coming soon"><i
+                    class="fas fa-eye"></i></button>
               </div>
             </div>
             <div class="portfolio-content">
@@ -752,8 +825,8 @@
             <div class="portfolio-image">
               <span class="emoji">📋</span>
               <div class="portfolio-overlay">
-                <a href="#" class="btn btn-light btn-sm"><i class="fas fa-eye"></i></a>
-                <a href="#" class="btn btn-light btn-sm"><i class="fab fa-github"></i></a>
+                <button class="btn btn-light btn-sm" disabled aria-label="Demo coming soon"><i
+                    class="fas fa-eye"></i></button>
               </div>
             </div>
             <div class="portfolio-content">
@@ -772,8 +845,8 @@
             <div class="portfolio-image">
               <span class="emoji">🎯</span>
               <div class="portfolio-overlay">
-                <a href="#" class="btn btn-light btn-sm"><i class="fas fa-eye"></i></a>
-                <a href="#" class="btn btn-light btn-sm"><i class="fab fa-github"></i></a>
+                <button class="btn btn-light btn-sm" disabled aria-label="Demo coming soon"><i
+                    class="fas fa-eye"></i></button>
               </div>
             </div>
             <div class="portfolio-content">
@@ -799,7 +872,7 @@
         <h2 class="section-title">Certificates</h2>
         <p class="section-subtitle">Accredited certificates from trusted educational platforms</p>
       </div>
-      
+
       <div class="row g-4">
         <!-- EYouth Business Certificate -->
         <div class="col-md-6 col-lg-4" data-aos="fade-up">
@@ -813,10 +886,10 @@
               <span class="certificate-issuer"><i class="fas fa-building"></i> EYouth</span>
             </div>
             <div class="certificate-actions">
-              <a href="Certificate _ EYouth Business.pdf" target="_blank" class="btn-cert btn-preview" title="Preview">
+              <a href="certificate-eyouth-business.pdf" target="_blank" class="btn-cert btn-preview" title="Preview">
                 <i class="fas fa-eye"></i>
               </a>
-              <a href="Certificate _ EYouth Business.pdf" download class="btn-cert btn-download" title="Download">
+              <a href="certificate-eyouth-business.pdf" download class="btn-cert btn-download" title="Download">
                 <i class="fas fa-download"></i>
               </a>
             </div>
@@ -835,10 +908,10 @@
               <span class="certificate-issuer"><i class="fas fa-building"></i> EYouth</span>
             </div>
             <div class="certificate-actions">
-              <a href="Certificate _ EYouth Business 2.pdf" target="_blank" class="btn-cert btn-preview" title="معاينة">
+              <a href="certificate-eyouth-business-2.pdf" target="_blank" class="btn-cert btn-preview" title="Preview">
                 <i class="fas fa-eye"></i>
               </a>
-              <a href="Certificate _ EYouth Business 2.pdf" download class="btn-cert btn-download" title="تحميل">
+              <a href="certificate-eyouth-business-2.pdf" download class="btn-cert btn-download" title="Download">
                 <i class="fas fa-download"></i>
               </a>
             </div>
@@ -857,10 +930,10 @@
               <span class="certificate-issuer"><i class="fas fa-building"></i> EYouth</span>
             </div>
             <div class="certificate-actions">
-              <a href="Certificate _ EYouth Business 3.pdf" target="_blank" class="btn-cert btn-preview" title="معاينة">
+              <a href="certificate-eyouth-business-3.pdf" target="_blank" class="btn-cert btn-preview" title="Preview">
                 <i class="fas fa-eye"></i>
               </a>
-              <a href="Certificate _ EYouth Business 3.pdf" download class="btn-cert btn-download" title="تحميل">
+              <a href="certificate-eyouth-business-3.pdf" download class="btn-cert btn-download" title="Download">
                 <i class="fas fa-download"></i>
               </a>
             </div>
@@ -879,10 +952,10 @@
               <span class="certificate-issuer"><i class="fas fa-building"></i> EYouth</span>
             </div>
             <div class="certificate-actions">
-              <a href="Certificate _ EYouth Business 4.pdf" target="_blank" class="btn-cert btn-preview" title="معاينة">
+              <a href="certificate-eyouth-business-4.pdf" target="_blank" class="btn-cert btn-preview" title="Preview">
                 <i class="fas fa-eye"></i>
               </a>
-              <a href="Certificate _ EYouth Business 4.pdf" download class="btn-cert btn-download" title="تحميل">
+              <a href="certificate-eyouth-business-4.pdf" download class="btn-cert btn-download" title="Download">
                 <i class="fas fa-download"></i>
               </a>
             </div>
@@ -901,10 +974,10 @@
               <span class="certificate-issuer"><i class="fas fa-building"></i> EYouth</span>
             </div>
             <div class="certificate-actions">
-              <a href="Certificate _ EYouth Business 22.pdf" target="_blank" class="btn-cert btn-preview" title="معاينة">
+              <a href="certificate-eyouth-business-22.pdf" target="_blank" class="btn-cert btn-preview" title="معاينة">
                 <i class="fas fa-eye"></i>
               </a>
-              <a href="Certificate _ EYouth Business 22.pdf" download class="btn-cert btn-download" title="تحميل">
+              <a href="certificate-eyouth-business-22.pdf" download class="btn-cert btn-download" title="تحميل">
                 <i class="fas fa-download"></i>
               </a>
             </div>
@@ -923,10 +996,10 @@
               <span class="certificate-issuer"><i class="fas fa-building"></i> EYouth</span>
             </div>
             <div class="certificate-actions">
-              <a href="Certificate _ EYouth Business 33.pdf" target="_blank" class="btn-cert btn-preview" title="معاينة">
+              <a href="certificate-eyouth-business-33.pdf" target="_blank" class="btn-cert btn-preview" title="معاينة">
                 <i class="fas fa-eye"></i>
               </a>
-              <a href="Certificate _ EYouth Business 33.pdf" download class="btn-cert btn-download" title="تحميل">
+              <a href="certificate-eyouth-business-33.pdf" download class="btn-cert btn-download" title="تحميل">
                 <i class="fas fa-download"></i>
               </a>
             </div>
@@ -945,10 +1018,10 @@
               <span class="certificate-issuer"><i class="fas fa-building"></i> EYouth</span>
             </div>
             <div class="certificate-actions">
-              <a href="Certificate _ EYouth Business 44.pdf" target="_blank" class="btn-cert btn-preview" title="معاينة">
+              <a href="certificate-eyouth-business-44.pdf" target="_blank" class="btn-cert btn-preview" title="معاينة">
                 <i class="fas fa-eye"></i>
               </a>
-              <a href="Certificate _ EYouth Business 44.pdf" download class="btn-cert btn-download" title="تحميل">
+              <a href="certificate-eyouth-business-44.pdf" download class="btn-cert btn-download" title="تحميل">
                 <i class="fas fa-download"></i>
               </a>
             </div>
@@ -967,10 +1040,11 @@
               <span class="certificate-issuer"><i class="fas fa-building"></i> EYouth</span>
             </div>
             <div class="certificate-actions">
-              <a href="Certificate _ EYouth Business landscape.pdf" target="_blank" class="btn-cert btn-preview" title="معاينة">
+              <a href="certificate-eyouth-business-landscape.pdf" target="_blank" class="btn-cert btn-preview"
+                title="معاينة">
                 <i class="fas fa-eye"></i>
               </a>
-              <a href="Certificate _ EYouth Business landscape.pdf" download class="btn-cert btn-download" title="تحميل">
+              <a href="certificate-eyouth-business-landscape.pdf" download class="btn-cert btn-download" title="تحميل">
                 <i class="fas fa-download"></i>
               </a>
             </div>
@@ -989,10 +1063,12 @@
               <span class="certificate-issuer"><i class="fas fa-building"></i> EYouth</span>
             </div>
             <div class="certificate-actions">
-              <a href="Certificate _ EYouth Business landscape_1.pdf" target="_blank" class="btn-cert btn-preview" title="معاينة">
+              <a href="certificate-eyouth-business-landscape-1.pdf" target="_blank" class="btn-cert btn-preview"
+                title="معاينة">
                 <i class="fas fa-eye"></i>
               </a>
-              <a href="Certificate _ EYouth Business landscape_1.pdf" download class="btn-cert btn-download" title="تحميل">
+              <a href="certificate-eyouth-business-landscape-1.pdf" download class="btn-cert btn-download"
+                title="تحميل">
                 <i class="fas fa-download"></i>
               </a>
             </div>
@@ -1011,10 +1087,10 @@
               <span class="certificate-issuer"><i class="fas fa-university"></i> Educational Platform</span>
             </div>
             <div class="certificate-actions">
-              <a href="Course_Certificate_Ar.pdf" target="_blank" class="btn-cert btn-preview" title="معاينة">
+              <a href="course-certificate-ar.pdf" target="_blank" class="btn-cert btn-preview" title="معاينة">
                 <i class="fas fa-eye"></i>
               </a>
-              <a href="Course_Certificate_Ar.pdf" download class="btn-cert btn-download" title="تحميل">
+              <a href="course-certificate-ar.pdf" download class="btn-cert btn-download" title="تحميل">
                 <i class="fas fa-download"></i>
               </a>
             </div>
@@ -1033,10 +1109,10 @@
               <span class="certificate-issuer"><i class="fas fa-university"></i> Educational Platform</span>
             </div>
             <div class="certificate-actions">
-              <a href="Course_Certificate_Ar (1).pdf" target="_blank" class="btn-cert btn-preview" title="معاينة">
+              <a href="course-certificate-ar-1.pdf" target="_blank" class="btn-cert btn-preview" title="معاينة">
                 <i class="fas fa-eye"></i>
               </a>
-              <a href="Course_Certificate_Ar (1).pdf" download class="btn-cert btn-download" title="تحميل">
+              <a href="course-certificate-ar-1.pdf" download class="btn-cert btn-download" title="تحميل">
                 <i class="fas fa-download"></i>
               </a>
             </div>
@@ -1055,10 +1131,10 @@
               <span class="certificate-issuer"><i class="fas fa-university"></i> Educational Platform</span>
             </div>
             <div class="certificate-actions">
-              <a href="Course_Certificate_En.pdf" target="_blank" class="btn-cert btn-preview" title="Preview">
+              <a href="course-certificate-en.pdf" target="_blank" class="btn-cert btn-preview" title="Preview">
                 <i class="fas fa-eye"></i>
               </a>
-              <a href="Course_Certificate_En.pdf" download class="btn-cert btn-download" title="Download">
+              <a href="course-certificate-en.pdf" download class="btn-cert btn-download" title="Download">
                 <i class="fas fa-download"></i>
               </a>
             </div>
@@ -1077,10 +1153,10 @@
               <span class="certificate-issuer"><i class="fas fa-university"></i> Educational Platform</span>
             </div>
             <div class="certificate-actions">
-              <a href="Course_Certificate_En (1).pdf" target="_blank" class="btn-cert btn-preview" title="Preview">
+              <a href="course-certificate-en-1.pdf" target="_blank" class="btn-cert btn-preview" title="Preview">
                 <i class="fas fa-eye"></i>
               </a>
-              <a href="Course_Certificate_En (1).pdf" download class="btn-cert btn-download" title="Download">
+              <a href="course-certificate-en-1.pdf" download class="btn-cert btn-download" title="Download">
                 <i class="fas fa-download"></i>
               </a>
             </div>
@@ -1097,7 +1173,8 @@
       <div class="text-center mb-5">
         <div class="section-badge">Contact</div>
         <h2 class="section-title">Let's Work Together</h2>
-        <p class="section-subtitle">Tell me about your project or inquiry and I'll get back to you as soon as possible</p>
+        <p class="section-subtitle">Tell me about your project or inquiry and I'll get back to you as soon as possible
+        </p>
       </div>
       <div class="row g-4">
         <div class="col-lg-4" data-aos="fade-left">
@@ -1121,7 +1198,8 @@
             </div>
             <div class="social-links-contact">
               <a href="https://github.com/mohamedtayal" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-              <a href="https://www.linkedin.com/in/mohamedtayal" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+              <a href="https://www.linkedin.com/in/mohamedtayal" target="_blank" title="LinkedIn"><i
+                  class="fab fa-linkedin"></i></a>
               <a href="https://wa.me/201067035421" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             </div>
           </div>
@@ -1184,7 +1262,7 @@
                 <div class="col-12">
                   <div class="form-group">
                     <label><i class="fas fa-comment"></i> Message Details *</label>
-                    <textarea name="message" class="form-control" rows="5" required minlength="30" 
+                    <textarea name="message" class="form-control" rows="5" required minlength="30"
                       placeholder="Write details about your project or inquiry here (minimum 30 characters)"></textarea>
                   </div>
                 </div>
@@ -1231,7 +1309,8 @@
           <p>AI Student and Full Stack Developer, passionate about creating smart and innovative solutions</p>
           <div class="footer-social">
             <a href="https://github.com/mohamedtayal" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/mohamedtayal" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.linkedin.com/in/mohamedtayal" target="_blank" title="LinkedIn"><i
+                class="fab fa-linkedin"></i></a>
             <a href="https://wa.me/201067035421" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
           </div>
         </div>
@@ -1275,7 +1354,7 @@
     "name": "Mohamed Tayal",
     "alternateName": "Mohamed Tayal",
     "description": "AI Student and Full Stack Developer",
-    "url": "https://mohamedTayal.dev",
+    "url": "https://tayalz.vercel.app/",
     "jobTitle": "AI Developer & Full Stack Developer",
     "alumniOf": {
       "@type": "CollegeOrUniversity",
@@ -1295,20 +1374,20 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="js/app-config.js"></script>
   <script src="js/main.js"></script>
-  
+
   <!-- Page Load Script -->
   <script>
-    // Hide loader when page is ready
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.getElementById('pageLoader').classList.add('hidden');
-      }, 500);
-    });
-    
+    // Hide loader - with 5s timeout fallback so it never hangs
+    (function () {
+      var el = document.getElementById('pageLoader');
+      function hide() { if (el) el.classList.add('hidden'); }
+      window.addEventListener('load', function () { setTimeout(hide, 500); });
+      setTimeout(hide, 5000);
+    })();
+
     // Update copyright year
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
 </body>
+
 </html>
-
-
