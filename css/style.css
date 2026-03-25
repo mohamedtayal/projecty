@@ -679,7 +679,20 @@ h3,
   color: var(--white);
   position: relative;
   z-index: 10;
-  min-height: 2.4em;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.hero-title-subline {
+  display: block;
+  max-width: 11ch;
+  font-size: clamp(1.45rem, 3vw, 2.35rem);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+  color: var(--white);
 }
 
 /* Static "Hi, I'm" text */
@@ -917,7 +930,7 @@ h3,
   color: var(--slate-300);
   line-height: 1.8;
   margin-bottom: 36px;
-  max-width: 500px;
+  max-width: 560px;
   position: relative;
   z-index: 10;
 }
@@ -1016,6 +1029,8 @@ h3,
   gap: 16px;
   position: relative;
   z-index: 10;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .tech-label {
@@ -1332,7 +1347,8 @@ h3,
 /* Hero Responsive Styles */
 @media (max-width: 991px) {
   .hero-section .row {
-    flex-direction: column-reverse;
+    flex-direction: column;
+    row-gap: 40px;
   }
 
   .hero-visual {
@@ -1350,6 +1366,7 @@ h3,
   .hero-title {
     font-size: clamp(2.2rem, 8vw, 3rem);
     text-align: center;
+    align-items: center;
   }
 
   .hero-eyebrow {
@@ -3193,6 +3210,25 @@ body.light-mode .programmer-logo {
   font-size: 0.95rem;
 }
 
+.contact-link {
+  display: inline-block;
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  margin-bottom: 6px;
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+  color: var(--primary-light);
+}
+
+.contact-link-secondary {
+  color: var(--slate-400);
+  font-size: 0.88rem;
+  font-weight: 400;
+}
+
 .social-links-contact {
   display: flex;
   gap: 14px;
@@ -3308,6 +3344,13 @@ body.light-mode .programmer-logo {
   color: var(--slate-400);
   margin-bottom: 28px;
   font-size: 1.05rem;
+}
+
+.form-feedback {
+  margin: 4px 0 0;
+  color: #fca5a5;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 
@@ -3834,7 +3877,8 @@ object {
 
   /* --- Hero --- */
   .hero-section .row {
-    flex-direction: column-reverse;
+    flex-direction: column;
+    row-gap: 36px;
   }
 
   .hero-visual {
@@ -3852,6 +3896,7 @@ object {
   .hero-title {
     font-size: clamp(2rem, 6vw, 3rem);
     text-align: center;
+    align-items: center;
   }
 
   .hero-eyebrow {
@@ -4013,6 +4058,19 @@ object {
 
   .portfolio-content {
     padding: 20px;
+  }
+
+  .portfolio-overlay {
+    opacity: 1;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 18px;
+    background: linear-gradient(180deg, rgba(10, 10, 15, 0) 0%, rgba(10, 10, 15, 0.82) 100%);
+  }
+
+  .portfolio-overlay .btn {
+    transform: none;
+    opacity: 1;
   }
 
   .portfolio-filter {
@@ -4213,6 +4271,8 @@ object {
     text-align: center;
     margin-bottom: 18px;
     min-height: 2.2em;
+    align-items: center;
+    gap: 8px;
   }
 
   .hero-eyebrow {

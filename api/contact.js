@@ -66,7 +66,7 @@ module.exports = async function handler(req, res) {
         return res.status(201).json({ success: true, id: newMessage.id });
     } catch (error) {
         console.error('Contact API error:', error);
-        return res.status(500).json({ error: 'Internal server error', details: error.message, stack: error.stack });
+        return res.status(500).json({ error: 'Internal server error' });
     }
 };
 
